@@ -1,0 +1,137 @@
+.key {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1 / 1;
+  padding: 0;
+  border: 1px solid var(--key-border);
+  border-radius: var(--radius-md);
+  background: var(--key-bg);
+  color: var(--key-text);
+  font-family: inherit;
+  font-size: clamp(1.1rem, 4.4vw, 1.5rem);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.key:hover {
+  background: var(--key-bg-hover);
+}
+
+.key:active,
+.key.pressed {
+  transform: scale(0.95);
+  box-shadow: inset 0 2px 6px rgb(0 0 0 / 12%);
+}
+
+.key:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* A key spanning columns must drop the square ratio, or doubling its width
+   would double its height with it. The row height then comes from the ordinary
+   keys beside it, and this one stretches to match: two columns wide, one tall. */
+.spanning {
+  aspect-ratio: auto;
+}
+
+/* A key that would only produce an error — a closing bracket with nothing open,
+   or `=` mid-request — is visibly unavailable rather than silently inert. */
+.key:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Secondary label, printed above the key like a real calculator's 2nd row. */
+.hint {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  right: 0;
+  color: var(--text-subtle);
+  font-size: 0.6rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* Variants ---------------------------------------------------------------- */
+
+.function {
+  background: var(--function-bg);
+  color: var(--function-text);
+  font-size: clamp(0.95rem, 3.8vw, 1.25rem);
+}
+
+.function:hover {
+  background: var(--function-bg-hover);
+}
+
+/* Shorter and quieter than a digit key: the function row on the basic pad and
+   every key on the scientific pad. */
+.compact {
+  aspect-ratio: auto;
+  min-height: 2.9rem;
+  padding-top: 0.55rem;
+  background: var(--science-bg);
+  color: var(--science-text);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.compact:hover {
+  background: var(--science-bg-hover);
+}
+
+.operator,
+.equals {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: clamp(1.3rem, 5vw, 1.75rem);
+}
+
+.operator:hover,
+.equals:hover {
+  background: var(--accent-soft-hover);
+}
+
+.equals {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  box-shadow: 0 8px 20px -8px var(--accent-glow);
+}
+
+.equals:hover {
+  background: var(--accent-hover);
+}
+
+/* Armed operator: inverted so the pending operation is unmistakable. */
+.operator.armed {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border-color: transparent;
+  box-shadow: 0 8px 20px -8px var(--accent-glow);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .key {
+    transition: none;
+  }
+
+  .key:active,
+  .key.pressed {
+    transform: none;
+  }
+}

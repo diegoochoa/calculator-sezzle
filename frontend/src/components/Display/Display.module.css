@@ -1,0 +1,93 @@
+.display {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  min-height: 156px;
+  padding: var(--space-5);
+  border: 1px solid var(--display-border);
+  border-radius: var(--radius-md);
+  background: var(--display-bg);
+  overflow: hidden;
+}
+
+.context {
+  max-width: 100%;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.value {
+  display: block;
+  max-width: 100%;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  white-space: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  transition:
+    font-size var(--duration-fast) var(--ease-out),
+    opacity var(--duration-fast) var(--ease-out);
+}
+
+.context::-webkit-scrollbar,
+.value::-webkit-scrollbar {
+  display: none;
+}
+
+.busy {
+  opacity: 0.55;
+}
+
+.sizeLg {
+  font-size: clamp(2.2rem, 9vw, 2.9rem);
+}
+
+.sizeMd {
+  font-size: clamp(1.7rem, 7vw, 2.1rem);
+}
+
+.sizeSm {
+  font-size: clamp(1.2rem, 5vw, 1.5rem);
+}
+
+/* The character the server blamed. */
+.mark {
+  border-radius: 4px;
+  background: var(--danger-soft);
+  color: var(--danger);
+  padding-inline: 1px;
+}
+
+.status,
+.error {
+  margin: 0;
+  max-width: 100%;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  text-align: right;
+}
+
+.status {
+  color: var(--text-subtle);
+}
+
+.error {
+  color: var(--danger);
+  font-weight: 500;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .value {
+    transition: none;
+  }
+}

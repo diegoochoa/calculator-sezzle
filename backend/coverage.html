@@ -1,0 +1,3055 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>auth: Go Coverage Report</title>
+		<style>
+			body {
+				background: black;
+				color: rgb(80, 80, 80);
+			}
+			body, pre, #legend span {
+				font-family: Menlo, monospace;
+				font-weight: bold;
+			}
+			#topbar {
+				background: black;
+				position: fixed;
+				top: 0; left: 0; right: 0;
+				height: 42px;
+				border-bottom: 1px solid rgb(80, 80, 80);
+			}
+			#content {
+				margin-top: 50px;
+			}
+			#nav, #legend {
+				float: left;
+				margin-left: 10px;
+			}
+			#legend {
+				margin-top: 12px;
+			}
+			#nav {
+				margin-top: 10px;
+			}
+			#legend span {
+				margin: 0 5px;
+			}
+			.cov0 { color: rgb(192, 0, 0) }
+.cov1 { color: rgb(128, 128, 128) }
+.cov2 { color: rgb(116, 140, 131) }
+.cov3 { color: rgb(104, 152, 134) }
+.cov4 { color: rgb(92, 164, 137) }
+.cov5 { color: rgb(80, 176, 140) }
+.cov6 { color: rgb(68, 188, 143) }
+.cov7 { color: rgb(56, 200, 146) }
+.cov8 { color: rgb(44, 212, 149) }
+.cov9 { color: rgb(32, 224, 152) }
+.cov10 { color: rgb(20, 236, 155) }
+
+		</style>
+	</head>
+	<body>
+		<div id="topbar">
+			<div id="nav">
+				<select id="files">
+				
+				<option value="file0">github.com/diegoochoa/calculator-sezzle-api/internal/auth/clients.go (94.7%)</option>
+				
+				<option value="file1">github.com/diegoochoa/calculator-sezzle-api/internal/auth/jwt.go (93.8%)</option>
+				
+				<option value="file2">github.com/diegoochoa/calculator-sezzle-api/internal/calc/ast.go (0.0%)</option>
+				
+				<option value="file3">github.com/diegoochoa/calculator-sezzle-api/internal/calc/catalog.go (100.0%)</option>
+				
+				<option value="file4">github.com/diegoochoa/calculator-sezzle-api/internal/calc/errors.go (76.9%)</option>
+				
+				<option value="file5">github.com/diegoochoa/calculator-sezzle-api/internal/calc/eval.go (83.3%)</option>
+				
+				<option value="file6">github.com/diegoochoa/calculator-sezzle-api/internal/calc/functions.go (92.9%)</option>
+				
+				<option value="file7">github.com/diegoochoa/calculator-sezzle-api/internal/calc/lexer.go (81.4%)</option>
+				
+				<option value="file8">github.com/diegoochoa/calculator-sezzle-api/internal/calc/number.go (91.9%)</option>
+				
+				<option value="file9">github.com/diegoochoa/calculator-sezzle-api/internal/calc/parser.go (94.4%)</option>
+				
+				<option value="file10">github.com/diegoochoa/calculator-sezzle-api/internal/calc/service.go (94.4%)</option>
+				
+				<option value="file11">github.com/diegoochoa/calculator-sezzle-api/internal/config/config.go (85.7%)</option>
+				
+				<option value="file12">github.com/diegoochoa/calculator-sezzle-api/internal/config/secret.go (50.0%)</option>
+				
+				<option value="file13">github.com/diegoochoa/calculator-sezzle-api/internal/httpapi/auth.go (73.3%)</option>
+				
+				<option value="file14">github.com/diegoochoa/calculator-sezzle-api/internal/httpapi/calculate.go (93.8%)</option>
+				
+				<option value="file15">github.com/diegoochoa/calculator-sezzle-api/internal/httpapi/decode.go (94.7%)</option>
+				
+				<option value="file16">github.com/diegoochoa/calculator-sezzle-api/internal/httpapi/health.go (100.0%)</option>
+				
+				<option value="file17">github.com/diegoochoa/calculator-sezzle-api/internal/httpapi/openapi.go (100.0%)</option>
+				
+				<option value="file18">github.com/diegoochoa/calculator-sezzle-api/internal/httpapi/router.go (100.0%)</option>
+				
+				<option value="file19">github.com/diegoochoa/calculator-sezzle-api/internal/httpapi/server.go (82.4%)</option>
+				
+				<option value="file20">github.com/diegoochoa/calculator-sezzle-api/internal/httpx/context.go (100.0%)</option>
+				
+				<option value="file21">github.com/diegoochoa/calculator-sezzle-api/internal/httpx/response.go (92.3%)</option>
+				
+				<option value="file22">github.com/diegoochoa/calculator-sezzle-api/internal/middleware/auth.go (100.0%)</option>
+				
+				<option value="file23">github.com/diegoochoa/calculator-sezzle-api/internal/middleware/bodylimit.go (100.0%)</option>
+				
+				<option value="file24">github.com/diegoochoa/calculator-sezzle-api/internal/middleware/clientip.go (86.5%)</option>
+				
+				<option value="file25">github.com/diegoochoa/calculator-sezzle-api/internal/middleware/cors.go (100.0%)</option>
+				
+				<option value="file26">github.com/diegoochoa/calculator-sezzle-api/internal/middleware/logging.go (75.0%)</option>
+				
+				<option value="file27">github.com/diegoochoa/calculator-sezzle-api/internal/middleware/middleware.go (85.7%)</option>
+				
+				<option value="file28">github.com/diegoochoa/calculator-sezzle-api/internal/middleware/ratelimit.go (97.9%)</option>
+				
+				<option value="file29">github.com/diegoochoa/calculator-sezzle-api/internal/middleware/recover.go (91.7%)</option>
+				
+				<option value="file30">github.com/diegoochoa/calculator-sezzle-api/internal/middleware/requestid.go (94.1%)</option>
+				
+				</select>
+			</div>
+			<div id="legend">
+				<span>not tracked</span>
+			
+				<span class="cov0">no coverage</span>
+				<span class="cov1">low coverage</span>
+				<span class="cov2">*</span>
+				<span class="cov3">*</span>
+				<span class="cov4">*</span>
+				<span class="cov5">*</span>
+				<span class="cov6">*</span>
+				<span class="cov7">*</span>
+				<span class="cov8">*</span>
+				<span class="cov9">*</span>
+				<span class="cov10">high coverage</span>
+			
+			</div>
+		</div>
+		<div id="content">
+		
+		<pre class="file" id="file0" style="display: none">package auth
+
+import (
+        "crypto/rand"
+        "encoding/hex"
+
+        "golang.org/x/crypto/bcrypt"
+)
+
+// Credential is one client allowed to exchange a secret for a token. Only the
+// bcrypt hash is ever held in memory.
+type Credential struct {
+        ID         string
+        SecretHash []byte
+}
+
+// Store authenticates clients.
+type Store struct {
+        hashes map[string][]byte
+        // decoy is compared against when the client id is unknown, so a wrong id
+        // costs the same time as a wrong secret and cannot be enumerated.
+        decoy []byte
+}
+
+// NewStore indexes the configured credentials.
+func NewStore(credentials []Credential) *Store <span class="cov2" title="2">{
+        store := &amp;Store{hashes: make(map[string][]byte, len(credentials))}
+        for _, credential := range credentials </span><span class="cov2" title="2">{
+                store.hashes[credential.ID] = credential.SecretHash
+        }</span>
+
+        // A hash of an unguessable value: comparing against it always fails, but it
+        // burns the same bcrypt work as a real comparison.
+        <span class="cov2" title="2">filler := make([]byte, 32)
+        if _, err := rand.Read(filler); err == nil </span><span class="cov2" title="2">{
+                if hash, err := bcrypt.GenerateFromPassword([]byte(hex.EncodeToString(filler)), bcrypt.DefaultCost); err == nil </span><span class="cov2" title="2">{
+                        store.decoy = hash
+                }</span>
+        }
+
+        <span class="cov2" title="2">return store</span>
+}
+
+// Authenticate reports whether the secret matches the client.
+func (s *Store) Authenticate(id, secret string) bool <span class="cov4" title="7">{
+        hash, known := s.hashes[id]
+        if !known </span><span class="cov3" title="3">{
+                // Deliberately still hash, to keep the timing flat.
+                if s.decoy != nil </span><span class="cov3" title="3">{
+                        _ = bcrypt.CompareHashAndPassword(s.decoy, []byte(secret))
+                }</span>
+                <span class="cov3" title="3">return false</span>
+        }
+        <span class="cov3" title="4">return bcrypt.CompareHashAndPassword(hash, []byte(secret)) == nil</span>
+}
+
+// Len reports how many clients are configured, for startup logging.
+func (s *Store) Len() int <span class="cov1" title="1">{ return len(s.hashes) }</span>
+
+// newTokenID returns a random jti so individual tokens are traceable in logs
+// and revocable if a deny list is ever added.
+func newTokenID() string <span class="cov10" title="110">{
+        buf := make([]byte, 16)
+        if _, err := rand.Read(buf); err != nil </span><span class="cov0" title="0">{
+                return ""
+        }</span>
+        <span class="cov10" title="110">return hex.EncodeToString(buf)</span>
+}
+</pre>
+		
+		<pre class="file" id="file1" style="display: none">// Package auth issues and verifies the bearer tokens that gate the calculation
+// routes, and authenticates the clients allowed to ask for one.
+package auth
+
+import (
+        "errors"
+        "time"
+
+        "github.com/golang-jwt/jwt/v5"
+)
+
+// ErrInvalidToken is returned for every verification failure. Callers must not
+// tell a client which check failed — expiry, signature and issuer are all the
+// same answer, or the error message becomes an oracle.
+var ErrInvalidToken = errors.New("invalid token")
+
+// signingMethod is pinned. Accepting whatever the token's header claims is the
+// classic JWT vulnerability: "none" forges freely, and an RS256 token verified
+// as HS256 turns a public key into a signing key.
+var signingMethod = jwt.SigningMethodHS256
+
+// Token is a freshly issued credential.
+type Token struct {
+        Value     string
+        ExpiresIn int
+        ExpiresAt time.Time
+}
+
+// Issuer mints and validates HS256 tokens.
+type Issuer struct {
+        secret []byte
+        issuer string
+        ttl    time.Duration
+        // now is injectable so expiry is testable without sleeping.
+        now func() time.Time
+}
+
+// NewIssuer builds an Issuer. The secret length is validated at config load.
+func NewIssuer(secret []byte, issuer string, ttl time.Duration) *Issuer <span class="cov9" title="8">{
+        return &amp;Issuer{secret: secret, issuer: issuer, ttl: ttl, now: time.Now}
+}</span>
+
+// Issue mints a token for a client.
+func (i *Issuer) Issue(subject string) (Token, error) <span class="cov10" title="10">{
+        issuedAt := i.now()
+        expiresAt := issuedAt.Add(i.ttl)
+
+        claims := jwt.RegisteredClaims{
+                Subject:   subject,
+                Issuer:    i.issuer,
+                IssuedAt:  jwt.NewNumericDate(issuedAt),
+                NotBefore: jwt.NewNumericDate(issuedAt),
+                ExpiresAt: jwt.NewNumericDate(expiresAt),
+                ID:        newTokenID(),
+        }
+
+        signed, err := jwt.NewWithClaims(signingMethod, claims).SignedString(i.secret)
+        if err != nil </span><span class="cov0" title="0">{
+                return Token{}, err
+        }</span>
+
+        <span class="cov10" title="10">return Token{
+                Value:     signed,
+                ExpiresIn: int(i.ttl.Seconds()),
+                ExpiresAt: expiresAt,
+        }, nil</span>
+}
+
+// Verify checks a token and returns the client it was issued to.
+func (i *Issuer) Verify(raw string) (string, error) <span class="cov10" title="10">{
+        claims := &amp;jwt.RegisteredClaims{}
+
+        _, err := jwt.ParseWithClaims(raw, claims, func(*jwt.Token) (any, error) </span><span class="cov8" title="7">{
+                return i.secret, nil
+        }</span>,
+                jwt.WithValidMethods([]string{signingMethod.Alg()}),
+                jwt.WithIssuer(i.issuer),
+                jwt.WithExpirationRequired(),
+                jwt.WithTimeFunc(i.now),
+        )
+        <span class="cov10" title="10">if err != nil </span><span class="cov8" title="7">{
+                return "", ErrInvalidToken
+        }</span>
+        <span class="cov5" title="3">if claims.Subject == "" </span><span class="cov1" title="1">{
+                return "", ErrInvalidToken
+        }</span>
+        <span class="cov3" title="2">return claims.Subject, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file2" style="display: none">package calc
+
+// Node is one element of the parsed expression tree. Pos is the rune offset the
+// node starts at, carried so runtime failures can be reported against the input.
+type Node interface {
+        Pos() int
+}
+
+// NumberNode is a literal.
+type NumberNode struct {
+        Value  float64
+        Offset int
+}
+
+func (n *NumberNode) Pos() int <span class="cov0" title="0">{ return n.Offset }</span>
+
+// UnaryNode is a prefix operator: -x, +x, √x.
+type UnaryNode struct {
+        Op     string
+        X      Node
+        Offset int
+}
+
+func (n *UnaryNode) Pos() int <span class="cov0" title="0">{ return n.Offset }</span>
+
+// PostfixNode is a suffix operator: x!, x%.
+type PostfixNode struct {
+        Op     string
+        X      Node
+        Offset int
+}
+
+func (n *PostfixNode) Pos() int <span class="cov0" title="0">{ return n.Offset }</span>
+
+// BinaryNode is an infix operator. Offset points at the operator itself, which
+// is where a division by zero is most usefully underlined.
+type BinaryNode struct {
+        Op     string
+        Left   Node
+        Right  Node
+        Offset int
+}
+
+func (n *BinaryNode) Pos() int <span class="cov0" title="0">{ return n.Offset }</span>
+
+// CallNode is a function application such as sin(30) or log(8, 2).
+type CallNode struct {
+        Name   string
+        Args   []Node
+        Offset int
+}
+
+func (n *CallNode) Pos() int <span class="cov0" title="0">{ return n.Offset }</span>
+</pre>
+		
+		<pre class="file" id="file3" style="display: none">package calc
+
+// The catalog describes what the engine understands. It is served so a client
+// can build its keypad and its syntax hints from the server's real capability
+// rather than a hand-maintained duplicate.
+
+// FunctionInfo documents one callable function.
+type FunctionInfo struct {
+        Name    string `json:"name"`
+        MinArgs int    `json:"minArgs"`
+        MaxArgs int    `json:"maxArgs"`
+        Summary string `json:"summary"`
+        Domain  string `json:"domain,omitempty"`
+}
+
+// OperatorInfo documents one operator.
+type OperatorInfo struct {
+        Symbol        string   `json:"symbol"`
+        Summary       string   `json:"summary"`
+        Fixity        string   `json:"fixity"`
+        Precedence    int      `json:"precedence"`
+        Associativity string   `json:"associativity,omitempty"`
+        Aliases       []string `json:"aliases,omitempty"`
+}
+
+// Catalog is the full description of the grammar.
+type Catalog struct {
+        Functions []FunctionInfo `json:"functions"`
+        Operators []OperatorInfo `json:"operators"`
+        MaxLength int            `json:"maxExpressionLength"`
+        MaxDepth  int            `json:"maxDepth"`
+}
+
+var operatorCatalog = []OperatorInfo{
+        {Symbol: "+", Summary: "Addition", Fixity: "infix", Precedence: 1, Associativity: "left"},
+        {Symbol: "-", Summary: "Subtraction", Fixity: "infix", Precedence: 1, Associativity: "left", Aliases: []string{"−"}},
+        {Symbol: "*", Summary: "Multiplication", Fixity: "infix", Precedence: 2, Associativity: "left", Aliases: []string{"×", "·"}},
+        {Symbol: "/", Summary: "Division", Fixity: "infix", Precedence: 2, Associativity: "left", Aliases: []string{"÷"}},
+        {Symbol: "-", Summary: "Negation", Fixity: "prefix", Precedence: 3},
+        {Symbol: "√", Summary: "Square root", Fixity: "prefix", Precedence: 3},
+        {Symbol: "^", Summary: "Exponentiation", Fixity: "infix", Precedence: 4, Associativity: "right"},
+        {Symbol: "%", Summary: "Divide by one hundred", Fixity: "postfix", Precedence: 5},
+}
+
+// NewCatalog builds the catalog for the given limits.
+func NewCatalog(opts Options) Catalog <span class="cov7" title="5">{
+        o := opts.withDefaults()
+
+        catalog := Catalog{
+                Functions: make([]FunctionInfo, 0, len(functions)),
+                Operators: operatorCatalog,
+                MaxLength: o.MaxLength,
+                MaxDepth:  o.MaxDepth,
+        }
+
+        // Sorted names keep the payload stable, which makes it cacheable and makes
+        // golden-file tests meaningful.
+        for _, name := range FunctionNames() </span><span class="cov10" title="10">{
+                def := functions[name]
+                catalog.Functions = append(catalog.Functions, FunctionInfo{
+                        Name:    def.Name,
+                        MinArgs: def.MinArgs,
+                        MaxArgs: def.MaxArgs,
+                        Summary: def.Summary,
+                        Domain:  def.Domain,
+                })
+        }</span>
+
+        <span class="cov7" title="5">return catalog</span>
+}
+</pre>
+		
+		<pre class="file" id="file4" style="display: none">package calc
+
+import "fmt"
+
+// Error codes raised by the engine. They are part of the public API contract:
+// clients switch on them, so they must not change meaning.
+const (
+        CodeEmpty             = "EMPTY_EXPRESSION"
+        CodeTooLong           = "EXPRESSION_TOO_LONG"
+        CodeSyntax            = "SYNTAX_ERROR"
+        CodeUnbalancedParen   = "UNBALANCED_PAREN"
+        CodeUnknownIdentifier = "UNKNOWN_IDENTIFIER"
+        CodeWrongArity        = "WRONG_ARITY"
+        CodeDepthExceeded     = "DEPTH_EXCEEDED"
+        CodeDivisionByZero    = "DIVISION_BY_ZERO"
+        CodeDomain            = "DOMAIN_ERROR"
+        CodeUndefined         = "UNDEFINED_RESULT"
+        CodeOverflow          = "OVERFLOW"
+)
+
+// NoPosition marks an error that cannot be tied to an offset in the input.
+const NoPosition = -1
+
+// Error is every failure the engine can produce. Position is a 0-based rune
+// offset into the submitted expression so a client can underline the problem.
+type Error struct {
+        Code     string
+        Message  string
+        Position int
+}
+
+func (e *Error) Error() string <span class="cov0" title="0">{
+        if e.Position == NoPosition </span><span class="cov0" title="0">{
+                return fmt.Sprintf("%s: %s", e.Code, e.Message)
+        }</span>
+        <span class="cov0" title="0">return fmt.Sprintf("%s at %d: %s", e.Code, e.Position, e.Message)</span>
+}
+
+// at fills in the offset when the error was raised somewhere that did not know
+// it — arithmetic helpers report *what* failed, the evaluator reports *where*.
+func (e *Error) at(position int) *Error <span class="cov8" title="23">{
+        if e == nil || e.Position != NoPosition </span><span class="cov5" title="8">{
+                return e
+        }</span>
+        <span class="cov7" title="15">clone := *e
+        clone.Position = position
+        return &amp;clone</span>
+}
+
+func newError(code, message string, position int) *Error <span class="cov10" title="46">{
+        return &amp;Error{Code: code, Message: message, Position: position}
+}</span>
+
+// Errors raised without positional context; the evaluator attaches the offset.
+func errDivisionByZero() *Error <span class="cov6" title="9">{
+        return newError(CodeDivisionByZero, "Can't divide by zero", NoPosition)
+}</span>
+
+func errDomain(message string) *Error <span class="cov4" title="4">{
+        return newError(CodeDomain, message, NoPosition)
+}</span>
+
+func errOverflow(message string) *Error <span class="cov5" title="6">{
+        return newError(CodeOverflow, message, NoPosition)
+}</span>
+
+func errUndefined(message string) *Error <span class="cov1" title="1">{
+        return newError(CodeUndefined, message, NoPosition)
+}</span>
+</pre>
+		
+		<pre class="file" id="file5" style="display: none">package calc
+
+import "fmt"
+
+// Evaluate walks a parsed expression. Every arithmetic result is guarded, so a
+// NaN or ±Inf becomes a typed error here rather than an unencodable JSON body
+// at the transport layer.
+func Evaluate(node Node) (float64, *Error) <span class="cov7" title="61">{
+        value, err := eval(node)
+        if err != nil </span><span class="cov5" title="15">{
+                return 0, err
+        }</span>
+        <span class="cov7" title="46">guarded, err := guard(value)
+        if err != nil </span><span class="cov0" title="0">{
+                return 0, err.at(node.Pos())
+        }</span>
+        <span class="cov7" title="46">return guarded, nil</span>
+}
+
+func eval(node Node) (float64, *Error) <span class="cov10" title="203">{
+        switch n := node.(type) </span>{
+        case *NumberNode:<span class="cov9" title="116">
+                return n.Value, nil</span>
+
+        case *UnaryNode:<span class="cov6" title="23">
+                return evalUnary(n)</span>
+
+        case *PostfixNode:<span class="cov3" title="4">
+                return evalPostfix(n)</span>
+
+        case *BinaryNode:<span class="cov7" title="55">
+                return evalBinary(n)</span>
+
+        case *CallNode:<span class="cov3" title="5">
+                return evalCall(n)</span>
+
+        default:<span class="cov0" title="0">
+                return 0, newError(CodeSyntax, fmt.Sprintf("Unsupported expression element %T", node), node.Pos())</span>
+        }
+}
+
+func evalUnary(n *UnaryNode) (float64, *Error) <span class="cov6" title="23">{
+        operand, err := eval(n.X)
+        if err != nil </span><span class="cov0" title="0">{
+                return 0, err
+        }</span>
+
+        <span class="cov6" title="23">switch n.Op </span>{
+        case "+":<span class="cov1" title="1">
+                return operand, nil</span>
+        case "-":<span class="cov5" title="17">
+                return -operand, nil</span>
+        case "√":<span class="cov3" title="5">
+                result, applyErr := functions["sqrt"].apply([]float64{operand})
+                return result, applyErr.at(n.Offset)</span>
+        default:<span class="cov0" title="0">
+                return 0, newError(CodeSyntax, "Unsupported prefix operator "+n.Op, n.Offset)</span>
+        }
+}
+
+func evalPostfix(n *PostfixNode) (float64, *Error) <span class="cov3" title="4">{
+        operand, err := eval(n.X)
+        if err != nil </span><span class="cov0" title="0">{
+                return 0, err
+        }</span>
+
+        <span class="cov3" title="4">switch n.Op </span>{
+        case "%":<span class="cov3" title="4">
+                // Postfix percent is plain division by 100.
+                result, opErr := Div(operand, 100)
+                return result, opErr.at(n.Offset)</span>
+        default:<span class="cov0" title="0">
+                return 0, newError(CodeSyntax, "Unsupported postfix operator "+n.Op, n.Offset)</span>
+        }
+}
+
+func evalBinary(n *BinaryNode) (float64, *Error) <span class="cov7" title="55">{
+        left, err := eval(n.Left)
+        if err != nil </span><span class="cov0" title="0">{
+                return 0, err
+        }</span>
+        <span class="cov7" title="55">right, err := eval(n.Right)
+        if err != nil </span><span class="cov1" title="1">{
+                return 0, err
+        }</span>
+
+        <span class="cov7" title="54">var (
+                result float64
+                opErr  *Error
+        )
+        switch n.Op </span>{
+        case "+":<span class="cov5" title="11">
+                result = Add(left, right)</span>
+        case "-":<span class="cov4" title="7">
+                result = Sub(left, right)</span>
+        case "*":<span class="cov5" title="11">
+                result = Mul(left, right)</span>
+        case "/":<span class="cov5" title="11">
+                result, opErr = Div(left, right)</span>
+        case "^":<span class="cov5" title="14">
+                result, opErr = Pow(left, right)</span>
+        default:<span class="cov0" title="0">
+                return 0, newError(CodeSyntax, "Unsupported operator "+n.Op, n.Offset)</span>
+        }
+        <span class="cov7" title="54">if opErr != nil </span><span class="cov4" title="8">{
+                return 0, opErr.at(n.Offset)
+        }</span>
+
+        <span class="cov7" title="46">guarded, guardErr := guard(result)
+        if guardErr != nil </span><span class="cov3" title="5">{
+                return 0, guardErr.at(n.Offset)
+        }</span>
+        <span class="cov7" title="41">return guarded, nil</span>
+}
+
+func evalCall(n *CallNode) (float64, *Error) <span class="cov3" title="5">{
+        def, ok := functions[n.Name]
+        if !ok </span><span class="cov0" title="0">{
+                // Unreachable: the parser rejects unknown functions.
+                return 0, newError(CodeUnknownIdentifier, "Unknown function "+n.Name, n.Offset)
+        }</span>
+
+        <span class="cov3" title="5">args := make([]float64, len(n.Args))
+        for i, arg := range n.Args </span><span class="cov3" title="5">{
+                value, err := eval(arg)
+                if err != nil </span><span class="cov0" title="0">{
+                        return 0, err
+                }</span>
+                <span class="cov3" title="5">args[i] = value</span>
+        }
+
+        <span class="cov3" title="5">result, err := def.apply(args)
+        if err != nil </span><span class="cov1" title="1">{
+                return 0, err.at(n.Offset)
+        }</span>
+
+        <span class="cov3" title="4">guarded, guardErr := guard(result)
+        if guardErr != nil </span><span class="cov0" title="0">{
+                return 0, guardErr.at(n.Offset)
+        }</span>
+        <span class="cov3" title="4">return guarded, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file6" style="display: none">package calc
+
+import (
+        "fmt"
+        "math"
+        "sort"
+)
+
+// The function set is deliberately small: square root and absolute value are
+// the only named functions the calculator exposes. Trigonometry, logarithms,
+// hyperbolics and factorials were removed along with the scientific keypad —
+// the brief asks for the four operations, and every one of those extras brought
+// a judgement call (angle units, domain edges) that the requirements never
+// needed answered.
+//
+// The machinery around this registry is unchanged, so adding a function back is
+// one entry in the map plus its catalog text.
+
+// FunctionDef describes one callable function.
+type FunctionDef struct {
+        Name    string
+        MinArgs int
+        MaxArgs int
+        Summary string
+        // Domain documents the accepted inputs, surfaced by the catalog endpoint.
+        Domain string
+
+        apply func(args []float64) (float64, *Error)
+}
+
+// unary adapts a single-argument implementation.
+func unary(fn func(float64) (float64, *Error)) func([]float64) (float64, *Error) <span class="cov3" title="2">{
+        return func(args []float64) (float64, *Error) </span><span class="cov10" title="10">{ return fn(args[0]) }</span>
+}
+
+var functions = map[string]FunctionDef{
+        "sqrt": {
+                Name: "sqrt", MinArgs: 1, MaxArgs: 1,
+                Summary: "Square root",
+                Domain:  "[0, ∞)",
+                apply: unary(func(x float64) (float64, *Error) <span class="cov9" title="8">{
+                        if x &lt; 0 </span><span class="cov3" title="2">{
+                                return 0, errDomain("The square root of a negative number is not real")
+                        }</span>
+                        <span class="cov8" title="6">return Round(math.Sqrt(x)), nil</span>
+                }),
+        },
+        "abs": {
+                Name: "abs", MinArgs: 1, MaxArgs: 1,
+                Summary: "Absolute value",
+                apply:   unary(func(x float64) (float64, *Error) <span class="cov3" title="2">{ return math.Abs(x), nil }</span>),
+        },
+}
+
+// arityMessage explains a wrong argument count in the terms a user typed it.
+func arityMessage(def FunctionDef, got int) string <span class="cov1" title="1">{
+        if def.MinArgs == def.MaxArgs </span><span class="cov1" title="1">{
+                return fmt.Sprintf("%s takes %d argument(s) but got %d", def.Name, def.MinArgs, got)
+        }</span>
+        <span class="cov0" title="0">return fmt.Sprintf("%s takes between %d and %d arguments but got %d",
+                def.Name, def.MinArgs, def.MaxArgs, got)</span>
+}
+
+// FunctionNames lists every function, sorted, for documentation and tests.
+func FunctionNames() []string <span class="cov7" title="5">{
+        names := make([]string, 0, len(functions))
+        for name := range functions </span><span class="cov10" title="10">{
+                names = append(names, name)
+        }</span>
+        <span class="cov7" title="5">sort.Strings(names)
+        return names</span>
+}
+</pre>
+		
+		<pre class="file" id="file7" style="display: none">package calc
+
+import (
+        "math"
+        "strconv"
+        "strings"
+        "unicode"
+)
+
+type tokenKind int
+
+const (
+        tokenEOF tokenKind = iota
+        tokenNumber
+        tokenIdent
+        tokenPlus
+        tokenMinus
+        tokenStar
+        tokenSlash
+        tokenCaret
+        tokenPercent
+        tokenRadical
+        tokenLParen
+        tokenRParen
+        tokenComma
+)
+
+func (k tokenKind) String() string <span class="cov2" title="4">{
+        switch k </span>{
+        case tokenEOF:<span class="cov0" title="0">
+                return "end of expression"</span>
+        case tokenNumber:<span class="cov1" title="1">
+                return "number"</span>
+        case tokenIdent:<span class="cov1" title="1">
+                return "name"</span>
+        case tokenPlus:<span class="cov0" title="0">
+                return `"+"`</span>
+        case tokenMinus:<span class="cov0" title="0">
+                return `"-"`</span>
+        case tokenStar:<span class="cov1" title="1">
+                return `"*"`</span>
+        case tokenSlash:<span class="cov0" title="0">
+                return `"/"`</span>
+        case tokenCaret:<span class="cov0" title="0">
+                return `"^"`</span>
+        case tokenPercent:<span class="cov0" title="0">
+                return `"%"`</span>
+        case tokenRadical:<span class="cov0" title="0">
+                return `"√"`</span>
+        case tokenLParen:<span class="cov0" title="0">
+                return `"("`</span>
+        case tokenRParen:<span class="cov1" title="1">
+                return `")"`</span>
+        case tokenComma:<span class="cov0" title="0">
+                return `","`</span>
+        default:<span class="cov0" title="0">
+                return "token"</span>
+        }
+}
+
+type token struct {
+        kind  tokenKind
+        text  string
+        value float64
+        pos   int
+}
+
+// runeTokens maps single characters to their token kind. The Unicode entries
+// exist because the frontend renders those glyphs on its keys, so an expression
+// copied out of the UI lexes without translation.
+var runeTokens = map[rune]tokenKind{
+        '+': tokenPlus,
+        '-': tokenMinus,
+        '−': tokenMinus, // U+2212 minus sign
+        '–': tokenMinus, // en dash, a common paste artefact
+        '*': tokenStar,
+        '×': tokenStar,
+        '·': tokenStar,
+        '/': tokenSlash,
+        '÷': tokenSlash,
+        '^': tokenCaret,
+        '%': tokenPercent,
+        '√': tokenRadical,
+        '(': tokenLParen,
+        ')': tokenRParen,
+        ',': tokenComma,
+}
+
+// tokenize converts an expression into tokens. Positions are rune offsets, so
+// they stay meaningful for clients indexing a JavaScript string of the same
+// text after accounting for surrogate pairs (none of our glyphs use them).
+func tokenize(expression string) ([]token, *Error) <span class="cov6" title="107">{
+        runes := []rune(expression)
+        tokens := make([]token, 0, len(runes)/2+1)
+
+        for i := 0; i &lt; len(runes); </span><span class="cov9" title="1501">{
+                r := runes[i]
+
+                switch </span>{
+                case unicode.IsSpace(r):<span class="cov6" title="144">
+                        i++</span>
+
+                case isDigit(r) || r == '.':<span class="cov7" title="183">
+                        tok, next, err := scanNumber(runes, i)
+                        if err != nil </span><span class="cov2" title="4">{
+                                return nil, err
+                        }</span>
+                        <span class="cov7" title="179">tokens = append(tokens, tok)
+                        i = next</span>
+
+                case isIdentStart(r):<span class="cov4" title="14">
+                        start := i
+                        for i &lt; len(runes) &amp;&amp; isIdentPart(runes[i]) </span><span class="cov5" title="48">{
+                                i++
+                        }</span>
+                        <span class="cov4" title="14">name := strings.ToLower(string(runes[start:i]))
+                        tokens = append(tokens, token{kind: tokenIdent, text: name, pos: start})</span>
+
+                default:<span class="cov9" title="1160">
+                        if kind, ok := runeTokens[r]; ok </span><span class="cov9" title="1159">{
+                                tokens = append(tokens, token{kind: kind, text: string(r), pos: i})
+                                i++
+                                continue</span>
+                        }
+                        <span class="cov1" title="1">return nil, newError(CodeSyntax, "Unexpected character "+strconv.QuoteRune(r), i)</span>
+                }
+        }
+
+        <span class="cov6" title="102">tokens = append(tokens, token{kind: tokenEOF, pos: len(runes)})
+        return tokens, nil</span>
+}
+
+// scanNumber reads a decimal literal with an optional exponent. The exponent is
+// only consumed when it is followed by digits, so `2*e` keeps `e` as the
+// constant while `2e5` is a single literal.
+func scanNumber(runes []rune, start int) (token, int, *Error) <span class="cov7" title="183">{
+        i := start
+        for i &lt; len(runes) &amp;&amp; (isDigit(runes[i]) || runes[i] == '.') </span><span class="cov7" title="259">{
+                i++
+        }</span>
+
+        <span class="cov7" title="183">if i &lt; len(runes) &amp;&amp; (runes[i] == 'e' || runes[i] == 'E') </span><span class="cov4" title="13">{
+                j := i + 1
+                if j &lt; len(runes) &amp;&amp; (runes[j] == '+' || runes[j] == '-') </span><span class="cov1" title="2">{
+                        j++
+                }</span>
+                <span class="cov4" title="13">if j &lt; len(runes) &amp;&amp; isDigit(runes[j]) </span><span class="cov4" title="13">{
+                        for j &lt; len(runes) &amp;&amp; isDigit(runes[j]) </span><span class="cov5" title="29">{
+                                j++
+                        }</span>
+                        <span class="cov4" title="13">i = j</span>
+                }
+        }
+
+        <span class="cov7" title="183">text := string(runes[start:i])
+        value, err := strconv.ParseFloat(text, 64)
+        switch </span>{
+        case err != nil &amp;&amp; strings.Contains(err.Error(), "value out of range"):<span class="cov1" title="2">
+                return token{}, start, newError(CodeOverflow, "The number "+text+" is out of range", start)</span>
+        case err != nil:<span class="cov1" title="2">
+                return token{}, start, newError(CodeSyntax, "Invalid number "+strconv.Quote(text), start)</span>
+        case math.IsInf(value, 0):<span class="cov0" title="0">
+                return token{}, start, newError(CodeOverflow, "The number "+text+" is out of range", start)</span>
+        }
+
+        <span class="cov7" title="179">return token{kind: tokenNumber, text: text, value: value, pos: start}, i, nil</span>
+}
+
+func isDigit(r rune) bool <span class="cov10" title="1786">{ return r &gt;= '0' &amp;&amp; r &lt;= '9' }</span>
+
+func isIdentStart(r rune) bool <span class="cov9" title="1231">{ return r == '_' || unicode.IsLetter(r) }</span>
+
+func isIdentPart(r rune) bool <span class="cov5" title="57">{ return isIdentStart(r) || isDigit(r) }</span>
+</pre>
+		
+		<pre class="file" id="file8" style="display: none">package calc
+
+import (
+        "math"
+        "strconv"
+        "strings"
+)
+
+// Precision-safe arithmetic, ported from the frontend's src/core/arithmetic.ts
+// so both engines answer identically while they coexist.
+//
+// `0.1 + 0.2 == 0.30000000000000004` is unacceptable on a money surface, so
+// operands are scaled to integers by a power of ten whenever that fits inside
+// maxSafeInteger, and the operation runs there. Otherwise the result is rounded
+// to Precision significant digits, which is all the display can show anyway.
+//
+// This is display-grade arithmetic, not ledger arithmetic. Financial operations
+// (TVM, APR/APY, installment splits) want a decimal type instead.
+
+// Precision is the number of significant digits kept for inexact results.
+const Precision = 12
+
+// maxSafeInteger matches JavaScript's Number.MAX_SAFE_INTEGER, deliberately:
+// the frontend engine is bounded by it, and parity is the point.
+const maxSafeInteger = 9007199254740991.0
+
+// decimalPlaces counts digits after the point. The 'f' format never uses
+// exponent notation, so the count is exact rather than guessed.
+func decimalPlaces(value float64) (int, bool) <span class="cov10" title="107">{
+        if math.IsNaN(value) || math.IsInf(value, 0) </span><span class="cov2" title="2">{
+                return 0, false
+        }</span>
+        <span class="cov9" title="105">text := strconv.FormatFloat(value, 'f', -1, 64)
+        dot := strings.IndexByte(text, '.')
+        if dot &lt; 0 </span><span class="cov9" title="77">{
+                return 0, true
+        }</span>
+        <span class="cov7" title="28">return len(text) - dot - 1, true</span>
+}
+
+// integerScale returns the power of ten that turns every value into a safe
+// integer, and whether that is possible at all.
+func integerScale(values ...float64) (float64, bool) <span class="cov9" title="66">{
+        maxPlaces := 0
+        for _, value := range values </span><span class="cov9" title="102">{
+                places, ok := decimalPlaces(value)
+                if !ok || places &gt; Precision </span><span class="cov0" title="0">{
+                        return 0, false
+                }</span>
+                <span class="cov9" title="102">if places &gt; maxPlaces </span><span class="cov6" title="17">{
+                        maxPlaces = places
+                }</span>
+        }
+
+        <span class="cov9" title="66">scale := math.Pow(10, float64(maxPlaces))
+        for _, value := range values </span><span class="cov9" title="101">{
+                if math.Abs(value*scale) &gt; maxSafeInteger </span><span class="cov4" title="7">{
+                        return 0, false
+                }</span>
+        }
+        <span class="cov8" title="59">return scale, true</span>
+}
+
+// Round trims binary floating point noise, which only ever appears in the
+// fractional part. Integers are returned untouched: rounding them to 12
+// significant digits would corrupt exact results such as 2^53.
+func Round(value float64) float64 <span class="cov8" title="42">{
+        if math.IsNaN(value) || math.IsInf(value, 0) </span><span class="cov4" title="6">{
+                return value
+        }</span>
+        <span class="cov7" title="36">if value == math.Trunc(value) </span><span class="cov6" title="22">{
+                return value
+        }</span>
+        <span class="cov6" title="14">rounded, err := strconv.ParseFloat(strconv.FormatFloat(value, 'g', Precision, 64), 64)
+        if err != nil </span><span class="cov0" title="0">{
+                return value
+        }</span>
+        <span class="cov6" title="14">return rounded</span>
+}
+
+// Add returns a + b.
+func Add(a, b float64) float64 <span class="cov6" title="14">{
+        if scale, ok := integerScale(a, b); ok </span><span class="cov5" title="13">{
+                return (math.Round(a*scale) + math.Round(b*scale)) / scale
+        }</span>
+        <span class="cov1" title="1">return Round(a + b)</span>
+}
+
+// Sub returns a - b.
+func Sub(a, b float64) float64 <span class="cov5" title="9">{
+        if scale, ok := integerScale(a, b); ok </span><span class="cov5" title="9">{
+                return (math.Round(a*scale) - math.Round(b*scale)) / scale
+        }</span>
+        <span class="cov0" title="0">return Round(a - b)</span>
+}
+
+// Mul returns a * b.
+func Mul(a, b float64) float64 <span class="cov6" title="15">{
+        scaleA, okA := integerScale(a)
+        scaleB, okB := integerScale(b)
+        if !okA || !okB </span><span class="cov3" title="3">{
+                return Round(a * b)
+        }</span>
+
+        <span class="cov5" title="12">product := math.Round(a*scaleA) * math.Round(b*scaleB)
+        if math.Abs(product) &lt;= maxSafeInteger </span><span class="cov5" title="11">{
+                return product / (scaleA * scaleB)
+        }</span>
+        <span class="cov1" title="1">return Round(a * b)</span>
+}
+
+// Div returns a / b.
+func Div(a, b float64) (float64, *Error) <span class="cov6" title="19">{
+        if b == 0 </span><span class="cov4" title="6">{
+                return 0, errDivisionByZero()
+        }</span>
+        <span class="cov5" title="13">if scale, ok := integerScale(a, b); ok </span><span class="cov5" title="13">{
+                return Round(math.Round(a*scale) / math.Round(b*scale)), nil
+        }</span>
+        <span class="cov0" title="0">return Round(a / b), nil</span>
+}
+
+// Pow returns base raised to exponent.
+func Pow(base, exponent float64) (float64, *Error) <span class="cov6" title="20">{
+        if base == 0 &amp;&amp; exponent &lt; 0 </span><span class="cov3" title="3">{
+                return 0, errDivisionByZero()
+        }</span>
+        // A negative base only has a real power for integer exponents.
+        <span class="cov6" title="17">if base &lt; 0 &amp;&amp; exponent != math.Trunc(exponent) </span><span class="cov2" title="2">{
+                return 0, errDomain("A negative base has no real power for a fractional exponent")
+        }</span>
+        <span class="cov6" title="15">return Round(math.Pow(base, exponent)), nil</span>
+}
+
+// guard converts a non-finite result into a typed error. It runs after every
+// operation because NaN and ±Inf are not representable in JSON and would
+// otherwise surface as a 500.
+func guard(value float64) (float64, *Error) <span class="cov9" title="99">{
+        switch </span>{
+        case math.IsNaN(value):<span class="cov1" title="1">
+                return 0, errUndefined("The result is undefined")</span>
+        case math.IsInf(value, 0):<span class="cov4" title="6">
+                return 0, errOverflow("The result is out of range")</span>
+        default:<span class="cov9" title="92">
+                return value, nil</span>
+        }
+}
+
+// Format renders a result for display: plain decimal where that is readable,
+// exponent notation only when the magnitude demands it.
+func Format(value float64, precision int) string <span class="cov9" title="67">{
+        if value == 0 </span><span class="cov3" title="4">{
+                return "0" // collapses -0
+        }</span>
+        <span class="cov8" title="63">if precision &lt;= 0 || precision &gt; 17 </span><span class="cov0" title="0">{
+                precision = Precision
+        }</span>
+        <span class="cov8" title="63">if value == math.Trunc(value) &amp;&amp; math.Abs(value) &lt; 1e21 </span><span class="cov8" title="46">{
+                return strconv.FormatFloat(value, 'f', -1, 64)
+        }</span>
+        <span class="cov6" title="17">return strconv.FormatFloat(value, 'g', precision, 64)</span>
+}
+</pre>
+		
+		<pre class="file" id="file9" style="display: none">package calc
+
+import (
+        "fmt"
+        "strconv"
+        "strings"
+        "unicode/utf8"
+)
+
+// Precedence climbing parser.
+//
+//        expression → binary(1)
+//        binary(n)  → unary { infixOp binary(n') }
+//        unary      → ("-" | "+" | "√") unary | power
+//        power      → postfix [ "^" unary ]        -- right associative
+//        postfix    → primary { "!" | "%" }
+//        primary    → number | constant | call | "(" expression ")"
+//
+// Unary minus binds looser than "^", so -2^2 is -4, and the exponent is parsed
+// as a unary so 2^-3 works. Implicit multiplication is deliberately absent:
+// "2pi" is a syntax error rather than a guess.
+
+type opInfo struct {
+        name       string
+        precedence int
+        rightAssoc bool
+}
+
+type parser struct {
+        tokens   []token
+        index    int
+        depth    int
+        maxDepth int
+}
+
+// Parse turns an expression into an AST, validating syntax, arity, identifiers
+// and structural limits. It never evaluates, so it is also the implementation
+// behind the validate endpoint.
+func Parse(expression string, maxLength, maxDepth int) (Node, *Error) <span class="cov6" title="94">{
+        if strings.TrimSpace(expression) == "" </span><span class="cov2" title="4">{
+                return nil, newError(CodeEmpty, "The expression is empty", NoPosition)
+        }</span>
+        <span class="cov6" title="90">if length := utf8.RuneCountInString(expression); maxLength &gt; 0 &amp;&amp; length &gt; maxLength </span><span class="cov1" title="1">{
+                return nil, newError(CodeTooLong,
+                        fmt.Sprintf("The expression is %d characters, the limit is %d", length, maxLength), NoPosition)
+        }</span>
+
+        <span class="cov6" title="89">tokens, err := tokenize(expression)
+        if err != nil </span><span class="cov1" title="2">{
+                return nil, err
+        }</span>
+
+        <span class="cov6" title="87">if maxDepth &lt;= 0 </span><span class="cov0" title="0">{
+                maxDepth = 32
+        }</span>
+        <span class="cov6" title="87">p := &amp;parser{tokens: tokens, maxDepth: maxDepth}
+
+        node, err := p.parseBinary(1)
+        if err != nil </span><span class="cov4" title="13">{
+                return nil, err
+        }</span>
+        <span class="cov6" title="74">if current := p.current(); current.kind != tokenEOF </span><span class="cov2" title="3">{
+                return nil, newError(CodeSyntax, "Unexpected "+current.kind.String(), current.pos)
+        }</span>
+        <span class="cov6" title="71">return node, nil</span>
+}
+
+func (p *parser) current() token <span class="cov10" title="1057">{ return p.tokens[p.index] }</span>
+
+func (p *parser) advance() token <span class="cov8" title="310">{
+        tok := p.tokens[p.index]
+        if tok.kind != tokenEOF </span><span class="cov8" title="310">{
+                p.index++
+        }</span>
+        <span class="cov8" title="310">return tok</span>
+}
+
+// enter bounds recursion. Without it a hostile input such as 5000 nested
+// parentheses overflows the goroutine stack, and a stack overflow in Go is
+// unrecoverable — it takes the whole process down, not just the request.
+func (p *parser) enter() *Error <span class="cov9" title="575">{
+        p.depth++
+        if p.depth &gt; p.maxDepth </span><span class="cov1" title="1">{
+                return newError(CodeDepthExceeded,
+                        fmt.Sprintf("The expression nests deeper than %d levels", p.maxDepth), p.current().pos)
+        }</span>
+        <span class="cov9" title="574">return nil</span>
+}
+
+func (p *parser) leave() <span class="cov9" title="574">{ p.depth-- }</span>
+
+// peekInfix reports the infix operator at the cursor, if any.
+func (p *parser) peekInfix() (opInfo, bool) <span class="cov7" title="200">{
+        switch tok := p.current(); tok.kind </span>{
+        case tokenPlus:<span class="cov4" title="21">
+                return opInfo{name: "+", precedence: 1}, true</span>
+        case tokenMinus:<span class="cov4" title="11">
+                return opInfo{name: "-", precedence: 1}, true</span>
+        case tokenStar:<span class="cov4" title="15">
+                return opInfo{name: "*", precedence: 2}, true</span>
+        case tokenSlash:<span class="cov4" title="13">
+                return opInfo{name: "/", precedence: 2}, true</span>
+        }
+        <span class="cov7" title="140">return opInfo{}, false</span>
+}
+
+func (p *parser) parseBinary(minPrecedence int) (Node, *Error) <span class="cov7" title="171">{
+        if err := p.enter(); err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov7" title="171">defer p.leave()
+
+        left, err := p.parseUnary()
+        if err != nil </span><span class="cov5" title="24">{
+                return nil, err
+        }</span>
+
+        <span class="cov7" title="147">for </span><span class="cov7" title="200">{
+                op, ok := p.peekInfix()
+                if !ok || op.precedence &lt; minPrecedence </span><span class="cov7" title="144">{
+                        return left, nil
+                }</span>
+
+                <span class="cov6" title="56">operator := p.advance()
+                next := op.precedence + 1
+                if op.rightAssoc </span><span class="cov0" title="0">{
+                        next = op.precedence
+                }</span>
+
+                <span class="cov6" title="56">right, err := p.parseBinary(next)
+                if err != nil </span><span class="cov2" title="3">{
+                        return nil, err
+                }</span>
+                <span class="cov6" title="53">left = &amp;BinaryNode{Op: op.name, Left: left, Right: right, Offset: operator.pos}</span>
+        }
+}
+
+func (p *parser) parseUnary() (Node, *Error) <span class="cov7" title="215">{
+        if err := p.enter(); err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov7" title="215">defer p.leave()
+
+        switch tok := p.current(); tok.kind </span>{
+        case tokenPlus, tokenMinus, tokenRadical:<span class="cov5" title="26">
+                p.advance()
+                operand, err := p.parseUnary()
+                if err != nil </span><span class="cov0" title="0">{
+                        return nil, err
+                }</span>
+                <span class="cov5" title="26">op := map[tokenKind]string{tokenPlus: "+", tokenMinus: "-", tokenRadical: "√"}[tok.kind]
+                return &amp;UnaryNode{Op: op, X: operand, Offset: tok.pos}, nil</span>
+        }
+
+        <span class="cov7" title="189">return p.parsePower()</span>
+}
+
+func (p *parser) parsePower() (Node, *Error) <span class="cov7" title="189">{
+        base, err := p.parsePostfix()
+        if err != nil </span><span class="cov5" title="24">{
+                return nil, err
+        }</span>
+
+        <span class="cov7" title="165">if p.current().kind != tokenCaret </span><span class="cov7" title="147">{
+                return base, nil
+        }</span>
+
+        <span class="cov4" title="18">operator := p.advance()
+        // Parsing the exponent as a unary makes "^" right associative and lets
+        // 2^-3 work without parentheses.
+        exponent, err := p.parseUnary()
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov4" title="18">return &amp;BinaryNode{Op: "^", Left: base, Right: exponent, Offset: operator.pos}, nil</span>
+}
+
+func (p *parser) parsePostfix() (Node, *Error) <span class="cov7" title="189">{
+        node, err := p.parsePrimary()
+        if err != nil </span><span class="cov5" title="24">{
+                return nil, err
+        }</span>
+
+        <span class="cov7" title="165">for </span><span class="cov7" title="170">{
+                tok := p.current()
+                if tok.kind != tokenPercent </span><span class="cov7" title="165">{
+                        return node, nil
+                }</span>
+                <span class="cov3" title="5">p.advance()
+                node = &amp;PostfixNode{Op: "%", X: node, Offset: tok.pos}</span>
+        }
+}
+
+func (p *parser) parsePrimary() (Node, *Error) <span class="cov7" title="189">{
+        if err := p.enter(); err != nil </span><span class="cov1" title="1">{
+                return nil, err
+        }</span>
+        <span class="cov7" title="188">defer p.leave()
+
+        switch tok := p.current(); tok.kind </span>{
+        case tokenNumber:<span class="cov7" title="152">
+                p.advance()
+                return &amp;NumberNode{Value: tok.value, Offset: tok.pos}, nil</span>
+
+        case tokenLParen:<span class="cov4" title="20">
+                p.advance()
+                inner, err := p.parseBinary(1)
+                if err != nil </span><span class="cov4" title="11">{
+                        return nil, err
+                }</span>
+                <span class="cov3" title="9">if p.current().kind != tokenRParen </span><span class="cov1" title="1">{
+                        return nil, newError(CodeUnbalancedParen, "Missing a closing parenthesis", p.current().pos)
+                }</span>
+                <span class="cov3" title="8">p.advance()
+                return inner, nil</span>
+
+        case tokenRParen:<span class="cov1" title="2">
+                return nil, newError(CodeUnbalancedParen, "Unexpected closing parenthesis", tok.pos)</span>
+
+        case tokenIdent:<span class="cov4" title="11">
+                return p.parseIdent()</span>
+
+        case tokenEOF:<span class="cov1" title="2">
+                return nil, newError(CodeSyntax, "The expression ends unexpectedly", tok.pos)</span>
+
+        default:<span class="cov1" title="1">
+                return nil, newError(CodeSyntax, "Expected a number or name but found "+tok.kind.String(), tok.pos)</span>
+        }
+}
+
+func (p *parser) parseIdent() (Node, *Error) <span class="cov4" title="11">{
+        name := p.advance()
+
+        if p.current().kind == tokenLParen </span><span class="cov3" title="8">{
+                return p.parseCall(name)
+        }</span>
+
+        <span class="cov2" title="3">if _, ok := functions[name.text]; ok </span><span class="cov1" title="1">{
+                return nil, newError(CodeSyntax,
+                        fmt.Sprintf("%s is a function, it needs parentheses such as %s(1)", name.text, name.text), name.pos)
+        }</span>
+        <span class="cov1" title="2">return nil, newError(CodeUnknownIdentifier, "Unknown name "+strconv.Quote(name.text), name.pos)</span>
+}
+
+func (p *parser) parseCall(name token) (Node, *Error) <span class="cov3" title="8">{
+        def, ok := functions[name.text]
+        if !ok </span><span class="cov1" title="1">{
+                return nil, newError(CodeUnknownIdentifier, "Unknown function "+strconv.Quote(name.text), name.pos)
+        }</span>
+
+        <span class="cov3" title="7">p.advance() // consume "("
+
+        var args []Node
+        if p.current().kind != tokenRParen </span><span class="cov3" title="7">{
+                for </span><span class="cov3" title="8">{
+                        arg, err := p.parseBinary(1)
+                        if err != nil </span><span class="cov0" title="0">{
+                                return nil, err
+                        }</span>
+                        <span class="cov3" title="8">args = append(args, arg)
+
+                        if p.current().kind != tokenComma </span><span class="cov3" title="7">{
+                                break</span>
+                        }
+                        <span class="cov1" title="1">p.advance()</span>
+                }
+        }
+
+        <span class="cov3" title="7">if p.current().kind != tokenRParen </span><span class="cov1" title="1">{
+                return nil, newError(CodeUnbalancedParen,
+                        "Missing a closing parenthesis for "+name.text, p.current().pos)
+        }</span>
+        <span class="cov3" title="6">p.advance()
+
+        if len(args) &lt; def.MinArgs || len(args) &gt; def.MaxArgs </span><span class="cov1" title="1">{
+                return nil, newError(CodeWrongArity, arityMessage(def, len(args)), name.pos)
+        }</span>
+        <span class="cov3" title="5">return &amp;CallNode{Name: name.text, Args: args, Offset: name.pos}, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file10" style="display: none">// Package calc is the calculation engine: lexer, parser, evaluator and
+// precision-safe arithmetic. It has no knowledge of HTTP, which is what makes
+// it exhaustively table-testable and reusable outside this server.
+package calc
+
+// Options bound what the engine will accept. Zero values fall back to the
+// defaults, so callers can pass a partially filled struct.
+type Options struct {
+        // MaxLength is the expression limit in runes.
+        MaxLength int
+        // MaxDepth bounds parser recursion.
+        MaxDepth int
+        // Precision is the significant digits used when formatting.
+        Precision int
+}
+
+// Defaults mirror the server's own defaults so the engine is usable standalone.
+const (
+        DefaultMaxLength = 256
+        DefaultMaxDepth  = 32
+)
+
+func (o Options) withDefaults() Options <span class="cov10" title="59">{
+        if o.MaxLength &lt;= 0 </span><span class="cov9" title="58">{
+                o.MaxLength = DefaultMaxLength
+        }</span>
+        <span class="cov10" title="59">if o.MaxDepth &lt;= 0 </span><span class="cov9" title="58">{
+                o.MaxDepth = DefaultMaxDepth
+        }</span>
+        <span class="cov10" title="59">if o.Precision &lt;= 0 </span><span class="cov9" title="58">{
+                o.Precision = Precision
+        }</span>
+        <span class="cov10" title="59">return o</span>
+}
+
+// Result is one evaluated expression. Formatted is the display string, so the
+// client does not have to re-derive the engine's rounding rules.
+type Result struct {
+        Value     float64
+        Formatted string
+}
+
+// Calculate parses and evaluates an expression.
+func Calculate(expression string, opts Options) (Result, *Error) <span class="cov9" title="52">{
+        o := opts.withDefaults()
+
+        node, err := Parse(expression, o.MaxLength, o.MaxDepth)
+        if err != nil </span><span class="cov0" title="0">{
+                return Result{}, err
+        }</span>
+
+        <span class="cov9" title="52">value, err := Evaluate(node)
+        if err != nil </span><span class="cov6" title="15">{
+                return Result{}, err
+        }</span>
+
+        <span class="cov8" title="37">return Result{Value: value, Formatted: Format(value, o.Precision)}, nil</span>
+}
+
+// Validate parses without evaluating, so a client can check syntax as the user
+// types without triggering division by zero or a slow computation.
+func Validate(expression string, opts Options) *Error <span class="cov2" title="2">{
+        o := opts.withDefaults()
+        _, err := Parse(expression, o.MaxLength, o.MaxDepth)
+        return err
+}</span>
+</pre>
+		
+		<pre class="file" id="file11" style="display: none">// Package config loads and validates the server configuration from the
+// environment. Everything is validated at boot so the process fails fast and
+// loudly rather than misbehaving under load.
+package config
+
+import (
+        "crypto/rand"
+        "encoding/hex"
+        "errors"
+        "fmt"
+        "strconv"
+        "strings"
+        "time"
+)
+
+// Env values.
+const (
+        EnvDevelopment = "development"
+        EnvProduction  = "production"
+)
+
+// MinJWTSecretLength is the shortest HS256 secret we accept. Shorter secrets
+// are brute-forceable offline once an attacker holds a single token.
+const MinJWTSecretLength = 32
+
+// Getenv reads one environment variable. Injected so tests never touch the
+// process environment.
+type Getenv func(key string) string
+
+// Client is one API consumer able to exchange credentials for a token.
+type Client struct {
+        ID string
+        // SecretHash is a bcrypt hash. Plaintext secrets are never retained.
+        SecretHash []byte
+}
+
+// Config is the fully validated server configuration.
+type Config struct {
+        Env  string
+        Addr string
+
+        JWTSecret []byte
+        JWTIssuer string
+        JWTTTL    time.Duration
+
+        Clients []Client
+
+        CORSOrigins    []string
+        TrustedProxies []string
+
+        RateLimitRPS       float64
+        RateLimitBurst     int
+        AuthRateLimitRPS   float64
+        AuthRateLimitBurst int
+
+        MaxExpressionLength int
+        MaxDepth            int
+        MaxBodyBytes        int64
+        MaxBatchSize        int
+
+        ReadTimeout     time.Duration
+        WriteTimeout    time.Duration
+        IdleTimeout     time.Duration
+        RequestTimeout  time.Duration
+        ShutdownTimeout time.Duration
+
+        // GeneratedJWTSecret reports that no secret was supplied and a random one
+        // was minted for this process. Development only; every restart invalidates
+        // every outstanding token.
+        GeneratedJWTSecret bool
+}
+
+// IsProduction reports whether hardened defaults apply.
+func (c *Config) IsProduction() bool <span class="cov2" title="2">{ return c.Env == EnvProduction }</span>
+
+type loader struct {
+        getenv Getenv
+        errs   []string
+}
+
+func (l *loader) fail(format string, args ...any) <span class="cov6" title="18">{
+        l.errs = append(l.errs, fmt.Sprintf(format, args...))
+}</span>
+
+func (l *loader) str(key, fallback string) string <span class="cov9" title="95">{
+        if value := strings.TrimSpace(l.getenv(key)); value != "" </span><span class="cov5" title="9">{
+                return value
+        }</span>
+        <span class="cov9" title="86">return fallback</span>
+}
+
+func (l *loader) int(key string, fallback int, min, max int) int <span class="cov10" title="114">{
+        raw := strings.TrimSpace(l.getenv(key))
+        if raw == "" </span><span class="cov9" title="111">{
+                return fallback
+        }</span>
+        <span class="cov3" title="3">value, err := strconv.Atoi(raw)
+        if err != nil </span><span class="cov2" title="2">{
+                l.fail("%s: %q is not an integer", key, raw)
+                return fallback
+        }</span>
+        <span class="cov1" title="1">if value &lt; min || value &gt; max </span><span class="cov1" title="1">{
+                l.fail("%s: %d is outside [%d, %d]", key, value, min, max)
+                return fallback
+        }</span>
+        <span class="cov0" title="0">return value</span>
+}
+
+func (l *loader) float(key string, fallback float64, min, max float64) float64 <span class="cov7" title="38">{
+        raw := strings.TrimSpace(l.getenv(key))
+        if raw == "" </span><span class="cov7" title="37">{
+                return fallback
+        }</span>
+        <span class="cov1" title="1">value, err := strconv.ParseFloat(raw, 64)
+        if err != nil </span><span class="cov1" title="1">{
+                l.fail("%s: %q is not a number", key, raw)
+                return fallback
+        }</span>
+        <span class="cov0" title="0">if value &lt; min || value &gt; max </span><span class="cov0" title="0">{
+                l.fail("%s: %v is outside [%v, %v]", key, value, min, max)
+                return fallback
+        }</span>
+        <span class="cov0" title="0">return value</span>
+}
+
+func (l *loader) duration(key string, fallback time.Duration, min, max time.Duration) time.Duration <span class="cov10" title="114">{
+        raw := strings.TrimSpace(l.getenv(key))
+        if raw == "" </span><span class="cov9" title="112">{
+                return fallback
+        }</span>
+        <span class="cov2" title="2">value, err := time.ParseDuration(raw)
+        if err != nil </span><span class="cov2" title="2">{
+                l.fail("%s: %q is not a duration (try 15m, 5s)", key, raw)
+                return fallback
+        }</span>
+        <span class="cov0" title="0">if value &lt; min || value &gt; max </span><span class="cov0" title="0">{
+                l.fail("%s: %s is outside [%s, %s]", key, value, min, max)
+                return fallback
+        }</span>
+        <span class="cov0" title="0">return value</span>
+}
+
+// csv splits a comma separated list, dropping blanks.
+func csv(raw string) []string <span class="cov9" title="76">{
+        var out []string
+        for _, part := range strings.Split(raw, ",") </span><span class="cov9" title="78">{
+                if trimmed := strings.TrimSpace(part); trimmed != "" </span><span class="cov7" title="39">{
+                        out = append(out, trimmed)
+                }</span>
+        }
+        <span class="cov9" title="76">return out</span>
+}
+
+// Load reads, defaults and validates the configuration. All problems are
+// reported together so a misconfigured deploy is fixed in one pass.
+func Load(getenv Getenv) (*Config, error) <span class="cov6" title="19">{
+        l := &amp;loader{getenv: getenv}
+
+        env := l.str("CALC_ENV", EnvDevelopment)
+        if env != EnvDevelopment &amp;&amp; env != EnvProduction </span><span class="cov1" title="1">{
+                l.fail("CALC_ENV: %q must be %q or %q", env, EnvDevelopment, EnvProduction)
+        }</span>
+        <span class="cov6" title="19">isProduction := env == EnvProduction
+
+        cfg := &amp;Config{
+                Env:  env,
+                Addr: l.str("CALC_ADDR", ":"+l.str("CALC_PORT", "8080")),
+
+                JWTIssuer: l.str("CALC_JWT_ISSUER", "calculator-sezzle-api"),
+                JWTTTL:    l.duration("CALC_JWT_TTL", 15*time.Minute, time.Minute, 24*time.Hour),
+
+                TrustedProxies: csv(l.getenv("CALC_TRUSTED_PROXIES")),
+
+                RateLimitRPS:       l.float("CALC_RATE_LIMIT_RPS", 20, 0.01, 10_000),
+                RateLimitBurst:     l.int("CALC_RATE_LIMIT_BURST", 40, 1, 100_000),
+                AuthRateLimitRPS:   l.float("CALC_AUTH_RATE_LIMIT_RPS", 1, 0.01, 1_000),
+                AuthRateLimitBurst: l.int("CALC_AUTH_RATE_LIMIT_BURST", 5, 1, 1_000),
+
+                MaxExpressionLength: l.int("CALC_MAX_EXPRESSION_LENGTH", 256, 1, 64_000),
+                MaxDepth:            l.int("CALC_MAX_DEPTH", 32, 1, 1_000),
+                MaxBodyBytes:        int64(l.int("CALC_MAX_BODY_BYTES", 8*1024, 64, 10*1024*1024)),
+                MaxBatchSize:        l.int("CALC_MAX_BATCH_SIZE", 50, 1, 1_000),
+
+                ReadTimeout:     l.duration("CALC_READ_TIMEOUT", 5*time.Second, time.Second, time.Minute),
+                WriteTimeout:    l.duration("CALC_WRITE_TIMEOUT", 10*time.Second, time.Second, 5*time.Minute),
+                IdleTimeout:     l.duration("CALC_IDLE_TIMEOUT", 60*time.Second, time.Second, 10*time.Minute),
+                RequestTimeout:  l.duration("CALC_REQUEST_TIMEOUT", 3*time.Second, 100*time.Millisecond, time.Minute),
+                ShutdownTimeout: l.duration("CALC_SHUTDOWN_TIMEOUT", 10*time.Second, time.Second, 2*time.Minute),
+        }
+
+        cfg.JWTSecret, cfg.GeneratedJWTSecret = l.jwtSecret(isProduction)
+        cfg.Clients = l.clients(isProduction)
+        cfg.CORSOrigins = l.corsOrigins(isProduction)
+
+        if len(l.errs) &gt; 0 </span><span class="cov6" title="14">{
+                return nil, errors.New("invalid configuration:\n  - " + strings.Join(l.errs, "\n  - "))
+        }</span>
+        <span class="cov4" title="5">return cfg, nil</span>
+}
+
+func (l *loader) jwtSecret(isProduction bool) (secret []byte, generated bool) <span class="cov6" title="19">{
+        raw := strings.TrimSpace(l.getenv("CALC_JWT_SECRET"))
+
+        if raw == "" </span><span class="cov6" title="14">{
+                if isProduction </span><span class="cov1" title="1">{
+                        l.fail("CALC_JWT_SECRET: required in production")
+                        return nil, false
+                }</span>
+                // Development convenience: a per-process secret. Tokens die on restart,
+                // which is the safe failure mode.
+                <span class="cov5" title="13">buf := make([]byte, MinJWTSecretLength)
+                if _, err := rand.Read(buf); err != nil </span><span class="cov0" title="0">{
+                        l.fail("CALC_JWT_SECRET: could not generate a development secret: %v", err)
+                        return nil, false
+                }</span>
+                <span class="cov5" title="13">return []byte(hex.EncodeToString(buf)), true</span>
+        }
+
+        <span class="cov4" title="5">if len(raw) &lt; MinJWTSecretLength </span><span class="cov1" title="1">{
+                l.fail("CALC_JWT_SECRET: must be at least %d bytes, got %d", MinJWTSecretLength, len(raw))
+        }</span>
+        <span class="cov4" title="5">if isProduction &amp;&amp; strings.Contains(strings.ToLower(raw), "example") </span><span class="cov1" title="1">{
+                l.fail("CALC_JWT_SECRET: the example secret must not be used in production")
+        }</span>
+        <span class="cov4" title="5">return []byte(raw), false</span>
+}
+
+func (l *loader) clients(isProduction bool) []Client <span class="cov6" title="19">{
+        var clients []Client
+        seen := map[string]bool{}
+
+        add := func(id string, hash []byte) </span><span class="cov6" title="17">{
+                if seen[id] </span><span class="cov1" title="1">{
+                        l.fail("CALC_CLIENTS: duplicate client id %q", id)
+                        return
+                }</span>
+                <span class="cov6" title="16">seen[id] = true
+                clients = append(clients, Client{ID: id, SecretHash: hash})</span>
+        }
+
+        <span class="cov6" title="19">for _, entry := range csv(l.getenv("CALC_CLIENTS")) </span><span class="cov4" title="7">{
+                id, hash, ok := strings.Cut(entry, ":")
+                if !ok || strings.TrimSpace(id) == "" || strings.TrimSpace(hash) == "" </span><span class="cov1" title="1">{
+                        l.fail("CALC_CLIENTS: %q is not in id:bcryptHash form", entry)
+                        continue</span>
+                }
+                <span class="cov4" title="6">add(strings.TrimSpace(id), []byte(strings.TrimSpace(hash)))</span>
+        }
+
+        <span class="cov6" title="19">if plaintext := csv(l.getenv("CALC_CLIENTS_PLAINTEXT")); len(plaintext) &gt; 0 </span><span class="cov5" title="12">{
+                if isProduction </span><span class="cov1" title="1">{
+                        l.fail("CALC_CLIENTS_PLAINTEXT: refused in production, use CALC_CLIENTS with bcrypt hashes")
+                }</span> else<span class="cov5" title="11"> {
+                        for _, entry := range plaintext </span><span class="cov5" title="11">{
+                                id, secret, ok := strings.Cut(entry, ":")
+                                if !ok || strings.TrimSpace(id) == "" || strings.TrimSpace(secret) == "" </span><span class="cov0" title="0">{
+                                        l.fail("CALC_CLIENTS_PLAINTEXT: %q is not in id:secret form", entry)
+                                        continue</span>
+                                }
+                                <span class="cov5" title="11">hash, err := hashSecret(strings.TrimSpace(secret))
+                                if err != nil </span><span class="cov0" title="0">{
+                                        l.fail("CALC_CLIENTS_PLAINTEXT: could not hash the secret for %q: %v", id, err)
+                                        continue</span>
+                                }
+                                <span class="cov5" title="11">add(strings.TrimSpace(id), hash)</span>
+                        }
+                }
+        }
+
+        <span class="cov6" title="19">if len(clients) == 0 </span><span class="cov3" title="4">{
+                l.fail("CALC_CLIENTS: at least one client is required (or CALC_CLIENTS_PLAINTEXT outside production)")
+        }</span>
+        <span class="cov6" title="19">return clients</span>
+}
+
+func (l *loader) corsOrigins(isProduction bool) []string <span class="cov6" title="19">{
+        origins := csv(l.str("CALC_CORS_ORIGINS", "http://localhost:5173"))
+        for _, origin := range origins </span><span class="cov6" title="20">{
+                if origin == "*" &amp;&amp; isProduction </span><span class="cov1" title="1">{
+                        l.fail(`CALC_CORS_ORIGINS: "*" is refused in production, list the origins explicitly`)
+                }</span>
+        }
+        <span class="cov6" title="19">return origins</span>
+}
+</pre>
+		
+		<pre class="file" id="file12" style="display: none">package config
+
+import "golang.org/x/crypto/bcrypt"
+
+// HashCost is deliberately the library default. It is the single knob trading
+// login latency against offline-cracking resistance.
+const HashCost = bcrypt.DefaultCost
+
+// hashSecret bcrypt-hashes a plaintext client secret.
+func hashSecret(secret string) ([]byte, error) <span class="cov10" title="11">{
+        return bcrypt.GenerateFromPassword([]byte(secret), HashCost)
+}</span>
+
+// HashSecret exposes hashing so operators can mint values for CALC_CLIENTS.
+func HashSecret(secret string) ([]byte, error) <span class="cov0" title="0">{ return hashSecret(secret) }</span>
+</pre>
+		
+		<pre class="file" id="file13" style="display: none">package httpapi
+
+import (
+        "net/http"
+        "time"
+
+        "github.com/diegoochoa/calculator-sezzle-api/internal/httpx"
+)
+
+type tokenRequest struct {
+        ClientID     string `json:"clientId"`
+        ClientSecret string `json:"clientSecret"`
+}
+
+type tokenResponse struct {
+        Token     string    `json:"token"`
+        TokenType string    `json:"tokenType"`
+        ExpiresIn int       `json:"expiresIn"`
+        ExpiresAt time.Time `json:"expiresAt"`
+}
+
+// handleToken exchanges client credentials for a bearer token.
+//
+// Every failure — unknown client, wrong secret, missing field — returns the same
+// 401 and the same message. Anything more specific tells an attacker which half
+// of their guess was right, and this route is the obvious brute-force target.
+func (s *Server) handleToken(w http.ResponseWriter, r *http.Request) <span class="cov10" title="8">{
+        var request tokenRequest
+        if !decodeJSON(w, r, &amp;request) </span><span class="cov0" title="0">{
+                return
+        }</span>
+
+        <span class="cov10" title="8">if request.ClientID == "" || request.ClientSecret == "" ||
+                !s.clients.Authenticate(request.ClientID, request.ClientSecret) </span><span class="cov8" title="6">{
+                s.logger.Warn("token request rejected",
+                        "clientId", request.ClientID,
+                        "requestId", httpx.RequestID(r.Context()),
+                )
+                w.Header().Set("WWW-Authenticate", `Bearer error="invalid_client"`)
+                httpx.WriteError(w, r, http.StatusUnauthorized, httpx.CodeUnauthorized,
+                        "The client credentials are not valid")
+                return
+        }</span>
+
+        <span class="cov4" title="2">token, err := s.issuer.Issue(request.ClientID)
+        if err != nil </span><span class="cov0" title="0">{
+                s.logger.Error("issuing a token failed",
+                        "error", err,
+                        "requestId", httpx.RequestID(r.Context()),
+                )
+                httpx.WriteError(w, r, http.StatusInternalServerError, httpx.CodeInternal,
+                        "The token could not be issued")
+                return
+        }</span>
+
+        // Credentials must never be cached by a proxy or the browser.
+        <span class="cov4" title="2">w.Header().Set("Cache-Control", "no-store")
+
+        httpx.WriteJSON(w, http.StatusOK, tokenResponse{
+                Token:     token.Value,
+                TokenType: "Bearer",
+                ExpiresIn: token.ExpiresIn,
+                ExpiresAt: token.ExpiresAt.UTC(),
+        })</span>
+}
+</pre>
+		
+		<pre class="file" id="file14" style="display: none">package httpapi
+
+import (
+        "fmt"
+        "net/http"
+
+        "github.com/diegoochoa/calculator-sezzle-api/internal/calc"
+        "github.com/diegoochoa/calculator-sezzle-api/internal/httpx"
+)
+
+// maxPrecision is the most significant digits a client may ask for; beyond 15
+// a float64 is inventing digits it does not have.
+const maxPrecision = 15
+
+type calculateRequest struct {
+        Expression string `json:"expression"`
+        Precision  int    `json:"precision"`
+}
+
+type calculateResponse struct {
+        Result     float64 `json:"result"`
+        Formatted  string  `json:"formatted"`
+        Expression string  `json:"expression"`
+}
+
+type batchRequest struct {
+        Expressions []string `json:"expressions"`
+        Precision   int      `json:"precision"`
+}
+
+type batchItem struct {
+        Expression string           `json:"expression"`
+        Result     *float64         `json:"result,omitempty"`
+        Formatted  string           `json:"formatted,omitempty"`
+        Error      *httpx.ErrorBody `json:"error,omitempty"`
+}
+
+type batchResponse struct {
+        Results []batchItem `json:"results"`
+}
+
+type validateRequest struct {
+        Expression string `json:"expression"`
+}
+
+type validateResponse struct {
+        Valid      bool             `json:"valid"`
+        Expression string           `json:"expression"`
+        Error      *httpx.ErrorBody `json:"error,omitempty"`
+}
+
+// resolveOptions validates the precision shared by the calculation endpoints.
+func (s *Server) resolveOptions(w http.ResponseWriter, r *http.Request, precision int) (calc.Options, bool) <span class="cov9" title="29">{
+        options := s.calcOptions
+        if precision != 0 </span><span class="cov3" title="3">{
+                if precision &lt; 1 || precision &gt; maxPrecision </span><span class="cov2" title="2">{
+                        httpx.WriteError(w, r, http.StatusBadRequest, httpx.CodeInvalidRequest,
+                                fmt.Sprintf("precision must be between 1 and %d", maxPrecision))
+                        return calc.Options{}, false
+                }</span>
+                <span class="cov1" title="1">options.Precision = precision</span>
+        }
+        <span class="cov9" title="27">return options, true</span>
+}
+
+// handleCalculate evaluates a single expression.
+func (s *Server) handleCalculate(w http.ResponseWriter, r *http.Request) <span class="cov10" title="35">{
+        var request calculateRequest
+        if !decodeJSON(w, r, &amp;request) </span><span class="cov5" title="7">{
+                return
+        }</span>
+
+        <span class="cov9" title="28">options, ok := s.resolveOptions(w, r, request.Precision)
+        if !ok </span><span class="cov2" title="2">{
+                return
+        }</span>
+
+        <span class="cov9" title="26">result, err := calc.Calculate(request.Expression, options)
+        if err != nil </span><span class="cov7" title="14">{
+                writeEngineError(w, r, err)
+                return
+        }</span>
+
+        <span class="cov7" title="12">httpx.WriteJSON(w, http.StatusOK, calculateResponse{
+                Result:     result.Value,
+                Formatted:  result.Formatted,
+                Expression: request.Expression,
+        })</span>
+}
+
+// handleBatch evaluates many expressions in one round trip.
+//
+// The response is a 200 even when individual expressions fail: a partial
+// failure is the expected outcome here, and collapsing it into a single status
+// would throw away the results that did succeed.
+func (s *Server) handleBatch(w http.ResponseWriter, r *http.Request) <span class="cov4" title="4">{
+        var request batchRequest
+        if !decodeJSON(w, r, &amp;request) </span><span class="cov0" title="0">{
+                return
+        }</span>
+
+        <span class="cov4" title="4">switch </span>{
+        case len(request.Expressions) == 0:<span class="cov2" title="2">
+                httpx.WriteError(w, r, http.StatusBadRequest, httpx.CodeInvalidRequest,
+                        "expressions must contain at least one entry")
+                return</span>
+        case len(request.Expressions) &gt; s.maxBatch:<span class="cov1" title="1">
+                httpx.WriteError(w, r, http.StatusBadRequest, httpx.CodeInvalidRequest,
+                        fmt.Sprintf("expressions must contain at most %d entries", s.maxBatch))
+                return</span>
+        }
+
+        <span class="cov1" title="1">options, ok := s.resolveOptions(w, r, request.Precision)
+        if !ok </span><span class="cov0" title="0">{
+                return
+        }</span>
+
+        <span class="cov1" title="1">results := make([]batchItem, 0, len(request.Expressions))
+        for _, expression := range request.Expressions </span><span class="cov4" title="4">{
+                item := batchItem{Expression: expression}
+
+                if result, err := calc.Calculate(expression, options); err != nil </span><span class="cov2" title="2">{
+                        item.Error = errorBody(err)
+                }</span> else<span class="cov2" title="2"> {
+                        value := result.Value
+                        item.Result = &amp;value
+                        item.Formatted = result.Formatted
+                }</span>
+
+                <span class="cov4" title="4">results = append(results, item)</span>
+        }
+
+        <span class="cov1" title="1">httpx.WriteJSON(w, http.StatusOK, batchResponse{Results: results})</span>
+}
+
+// handleValidate parses without evaluating.
+//
+// An invalid expression is a 200 with valid:false, not a 422: the client asked
+// whether the text parses, and "no" is a successful answer to that question.
+// This is what lets the UI check syntax on every keystroke without a division
+// by zero or a slow computation.
+func (s *Server) handleValidate(w http.ResponseWriter, r *http.Request) <span class="cov5" title="5">{
+        var request validateRequest
+        if !decodeJSON(w, r, &amp;request) </span><span class="cov0" title="0">{
+                return
+        }</span>
+
+        <span class="cov5" title="5">response := validateResponse{Valid: true, Expression: request.Expression}
+        if err := calc.Validate(request.Expression, s.calcOptions); err != nil </span><span class="cov3" title="3">{
+                response.Valid = false
+                response.Error = errorBody(err)
+        }</span>
+
+        <span class="cov5" title="5">httpx.WriteJSON(w, http.StatusOK, response)</span>
+}
+
+// handleFunctions describes the grammar so a client can build its keypad and
+// syntax hints from the server's real capability.
+func (s *Server) handleFunctions(w http.ResponseWriter, _ *http.Request) <span class="cov2" title="2">{
+        httpx.WriteJSON(w, http.StatusOK, calc.NewCatalog(s.calcOptions))
+}</span>
+</pre>
+		
+		<pre class="file" id="file15" style="display: none">package httpapi
+
+import (
+        "encoding/json"
+        "errors"
+        "fmt"
+        "io"
+        "net/http"
+        "strings"
+
+        "github.com/diegoochoa/calculator-sezzle-api/internal/httpx"
+)
+
+// decodeJSON reads a request body into target. It writes the failure itself and
+// reports whether the caller may continue.
+//
+// Unknown fields are rejected: a client sending {"expresion": "1+1"} has a bug,
+// and silently evaluating an empty expression instead of saying so wastes an
+// afternoon. Content-Type is deliberately not enforced, so `curl -d` works
+// without ceremony.
+func decodeJSON(w http.ResponseWriter, r *http.Request, target any) bool <span class="cov10" title="52">{
+        decoder := json.NewDecoder(r.Body)
+        decoder.DisallowUnknownFields()
+
+        if err := decoder.Decode(target); err != nil </span><span class="cov5" title="6">{
+                writeDecodeError(w, r, err)
+                return false
+        }</span>
+
+        // A second value in the body means the client sent something we would only
+        // half-honour.
+        <span class="cov9" title="46">if err := decoder.Decode(&amp;struct{}{}); !errors.Is(err, io.EOF) </span><span class="cov1" title="1">{
+                httpx.WriteError(w, r, http.StatusBadRequest, httpx.CodeInvalidRequest,
+                        "The body must contain exactly one JSON object")
+                return false
+        }</span>
+
+        <span class="cov9" title="45">return true</span>
+}
+
+func writeDecodeError(w http.ResponseWriter, r *http.Request, err error) <span class="cov5" title="6">{
+        var (
+                syntaxError   *json.SyntaxError
+                typeError     *json.UnmarshalTypeError
+                maxBytesError *http.MaxBytesError
+        )
+
+        switch </span>{
+        case errors.As(err, &amp;maxBytesError):<span class="cov1" title="1">
+                httpx.WriteError(w, r, http.StatusRequestEntityTooLarge, httpx.CodePayloadTooLarge,
+                        fmt.Sprintf("The request body must not exceed %d bytes", maxBytesError.Limit))</span>
+
+        case errors.Is(err, io.EOF):<span class="cov1" title="1">
+                httpx.WriteError(w, r, http.StatusBadRequest, httpx.CodeInvalidRequest,
+                        "The request body is empty")</span>
+
+        case errors.As(err, &amp;syntaxError):<span class="cov1" title="1">
+                httpx.WriteError(w, r, http.StatusBadRequest, httpx.CodeInvalidRequest,
+                        fmt.Sprintf("The body is not valid JSON (at byte %d)", syntaxError.Offset))</span>
+
+        case errors.Is(err, io.ErrUnexpectedEOF):<span class="cov1" title="1">
+                httpx.WriteError(w, r, http.StatusBadRequest, httpx.CodeInvalidRequest,
+                        "The body ends in the middle of a JSON value")</span>
+
+        case errors.As(err, &amp;typeError):<span class="cov1" title="1">
+                httpx.WriteError(w, r, http.StatusBadRequest, httpx.CodeInvalidRequest,
+                        fmt.Sprintf("Field %q must be a %s", typeError.Field, typeError.Type))</span>
+
+        case strings.HasPrefix(err.Error(), "json: unknown field "):<span class="cov1" title="1">
+                field := strings.TrimPrefix(err.Error(), "json: unknown field ")
+                httpx.WriteError(w, r, http.StatusBadRequest, httpx.CodeInvalidRequest,
+                        fmt.Sprintf("Unknown field %s", field))</span>
+
+        default:<span class="cov0" title="0">
+                httpx.WriteError(w, r, http.StatusBadRequest, httpx.CodeInvalidRequest,
+                        "The request body could not be read")</span>
+        }
+}
+</pre>
+		
+		<pre class="file" id="file16" style="display: none">package httpapi
+
+import (
+        "net/http"
+        "time"
+
+        "github.com/diegoochoa/calculator-sezzle-api/internal/httpx"
+)
+
+type healthResponse struct {
+        Status  string `json:"status"`
+        Version string `json:"version"`
+        Uptime  string `json:"uptime,omitempty"`
+}
+
+// handleHealth answers liveness probes: the process is up and serving.
+func (s *Server) handleHealth(w http.ResponseWriter, _ *http.Request) <span class="cov10" title="3">{
+        httpx.WriteJSON(w, http.StatusOK, healthResponse{Status: "ok", Version: s.version})
+}</span>
+
+// handleReady answers readiness probes. The engine has no external
+// dependencies, so readiness is liveness plus uptime; when a datastore or cache
+// appears, its check belongs here rather than in handleHealth, so a failing
+// dependency stops traffic without restarting the pod.
+func (s *Server) handleReady(w http.ResponseWriter, _ *http.Request) <span class="cov6" title="2">{
+        httpx.WriteJSON(w, http.StatusOK, healthResponse{
+                Status:  "ready",
+                Version: s.version,
+                Uptime:  s.now().Sub(s.startedAt).Truncate(time.Second).String(),
+        })
+}</span>
+</pre>
+		
+		<pre class="file" id="file17" style="display: none">package httpapi
+
+import (
+        "net/http"
+
+        "github.com/diegoochoa/calculator-sezzle-api/api"
+)
+
+// The specification is hand-written rather than generated from annotations.
+// Generation would mean a code-generator dependency, a build step and a docs
+// package in the tree; this API is small enough that one reviewed file is
+// cheaper, and openapi_test.go fails the build if it drifts from the routes
+// actually served.
+
+// Paths for the specification and the browsable documentation. Exported so the
+// router and its tests cannot disagree about them.
+const (
+        SpecPath = "/v1/openapi.yaml"
+        DocsPath = "/docs"
+)
+
+// handleOpenAPISpec serves the raw specification, for client generators and
+// anything else that consumes OpenAPI directly.
+//
+// Unauthenticated on purpose: a client has to read this in order to learn how
+// to authenticate, and the document describes the API rather than revealing
+// anything about its data.
+func (s *Server) handleOpenAPISpec(w http.ResponseWriter, _ *http.Request) <span class="cov8" title="1">{
+        w.Header().Set("Content-Type", "application/yaml; charset=utf-8")
+        w.Header().Set("X-Content-Type-Options", "nosniff")
+        w.Header().Set("Cache-Control", "public, max-age=300")
+        _, _ = w.Write(api.Spec())
+}</span>
+
+// swaggerUI renders the specification in a browser.
+//
+// The assets come from a pinned CDN build rather than being vendored: Swagger
+// UI is several megabytes and this is a 15 MB distroless image whose whole
+// point is having nothing spare in it. The trade-off is that this page needs
+// network access; the specification at SpecPath does not, so offline tooling
+// and client generation are unaffected.
+const swaggerUI = `&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
+    &lt;title&gt;Calculator API&lt;/title&gt;
+    &lt;link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5.17.14/swagger-ui.css" /&gt;
+    &lt;style&gt;
+      body { margin: 0; background: #fafafa; }
+      .swagger-ui .topbar { display: none; }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="swagger-ui"&gt;&lt;/div&gt;
+    &lt;script src="https://unpkg.com/swagger-ui-dist@5.17.14/swagger-ui-bundle.js" crossorigin&gt;&lt;/script&gt;
+    &lt;script&gt;
+      window.ui = SwaggerUIBundle({
+        url: '` + SpecPath + `',
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        displayRequestDuration: true,
+        defaultModelsExpandDepth: 0,
+        tryItOutEnabled: true,
+      });
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+`
+
+// handleDocs serves the Swagger UI page.
+func (s *Server) handleDocs(w http.ResponseWriter, _ *http.Request) <span class="cov8" title="1">{
+        w.Header().Set("Content-Type", "text/html; charset=utf-8")
+        w.Header().Set("X-Content-Type-Options", "nosniff")
+        _, _ = w.Write([]byte(swaggerUI))
+}</span>
+</pre>
+		
+		<pre class="file" id="file18" style="display: none">package httpapi
+
+import (
+        "net/http"
+        "strings"
+
+        "github.com/diegoochoa/calculator-sezzle-api/internal/httpx"
+        "github.com/diegoochoa/calculator-sezzle-api/internal/middleware"
+)
+
+// RouterConfig wires the handlers to the middleware stack.
+type RouterConfig struct {
+        Server   *Server
+        Verifier middleware.Verifier
+
+        // APILimiter bounds authenticated calculation traffic per client.
+        APILimiter *middleware.Limiter
+        // AuthLimiter bounds token requests per source address. It is separate and
+        // stricter: bcrypt makes that route the expensive one and the obvious
+        // brute-force target.
+        AuthLimiter *middleware.Limiter
+
+        IPResolver   *middleware.IPResolver
+        CORSOrigins  []string
+        MaxBodyBytes int64
+}
+
+// NewRouter builds the full handler: global layers, then per-route layers.
+//
+// Order is deliberate. Recovery is outermost so a panic anywhere below still
+// produces the JSON envelope. Authentication precedes rate limiting so the
+// limiter can key on the authenticated client rather than a shared NAT address.
+func NewRouter(cfg RouterConfig) http.Handler <span class="cov6" title="18">{
+        mux := http.NewServeMux()
+        server := cfg.Server
+
+        protected := func(handler http.Handler) http.Handler </span><span class="cov8" title="72">{
+                return middleware.Chain(handler,
+                        middleware.Authenticate(cfg.Verifier),
+                        middleware.RateLimit(cfg.APILimiter, middleware.SubjectKey(cfg.IPResolver)),
+                )
+        }</span>
+        <span class="cov6" title="18">throttledByIP := func(handler http.Handler) http.Handler </span><span class="cov6" title="18">{
+                return middleware.Chain(handler,
+                        middleware.RateLimit(cfg.AuthLimiter, middleware.IPKey(cfg.IPResolver)),
+                )
+        }</span>
+
+        <span class="cov6" title="18">route(mux, http.MethodPost, "/v1/auth/token", http.HandlerFunc(server.handleToken), throttledByIP)
+        route(mux, http.MethodPost, "/v1/calculate", http.HandlerFunc(server.handleCalculate), protected)
+        route(mux, http.MethodPost, "/v1/calculate/batch", http.HandlerFunc(server.handleBatch), protected)
+        route(mux, http.MethodPost, "/v1/validate", http.HandlerFunc(server.handleValidate), protected)
+        route(mux, http.MethodGet, "/v1/functions", http.HandlerFunc(server.handleFunctions), protected)
+
+        // Probes stay unauthenticated so an orchestrator does not need credentials.
+        route(mux, http.MethodGet, "/healthz", http.HandlerFunc(server.handleHealth), nil)
+        route(mux, http.MethodGet, "/readyz", http.HandlerFunc(server.handleReady), nil)
+
+        // Documentation is unauthenticated too: a client has to read it to learn how
+        // to authenticate in the first place.
+        route(mux, http.MethodGet, SpecPath, http.HandlerFunc(server.handleOpenAPISpec), nil)
+        route(mux, http.MethodGet, DocsPath, http.HandlerFunc(server.handleDocs), nil)
+
+        mux.Handle("/", http.HandlerFunc(notFound))
+
+        return middleware.Chain(mux,
+                middleware.Recover(server.logger),
+                middleware.RequestID,
+                middleware.Logging(server.logger),
+                middleware.CORS(cfg.CORSOrigins),
+                middleware.BodyLimit(cfg.MaxBodyBytes),
+        )</span>
+}
+
+// route registers a method-specific handler plus a bare-path fallback, so a
+// wrong method returns the JSON envelope instead of ServeMux's plain text.
+func route(mux *http.ServeMux, method, path string, handler http.Handler, wrap func(http.Handler) http.Handler) <span class="cov10" title="162">{
+        if wrap != nil </span><span class="cov8" title="90">{
+                handler = wrap(handler)
+        }</span>
+        <span class="cov10" title="162">mux.Handle(method+" "+path, handler)
+        mux.Handle(path, methodNotAllowed(method))</span>
+}
+
+func methodNotAllowed(allowed ...string) http.Handler <span class="cov10" title="162">{
+        allow := strings.Join(append(allowed, http.MethodOptions), ", ")
+
+        return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) </span><span class="cov1" title="1">{
+                w.Header().Set("Allow", allow)
+                httpx.WriteError(w, r, http.StatusMethodNotAllowed, httpx.CodeMethodNotAllowed,
+                        "This endpoint accepts "+allow)
+        }</span>)
+}
+
+func notFound(w http.ResponseWriter, r *http.Request) <span class="cov2" title="2">{
+        httpx.WriteError(w, r, http.StatusNotFound, httpx.CodeNotFound, "No such endpoint")
+}</span>
+</pre>
+		
+		<pre class="file" id="file19" style="display: none">// Package httpapi holds the HTTP handlers and routing. It owns request
+// decoding, validation and status mapping; all arithmetic lives in
+// internal/calc.
+package httpapi
+
+import (
+        "log/slog"
+        "net/http"
+        "time"
+
+        "github.com/diegoochoa/calculator-sezzle-api/internal/auth"
+        "github.com/diegoochoa/calculator-sezzle-api/internal/calc"
+        "github.com/diegoochoa/calculator-sezzle-api/internal/httpx"
+)
+
+// TokenIssuer mints bearer tokens.
+type TokenIssuer interface {
+        Issue(subject string) (auth.Token, error)
+}
+
+// ClientAuthenticator checks client credentials.
+type ClientAuthenticator interface {
+        Authenticate(id, secret string) bool
+}
+
+// Server holds the handler dependencies.
+type Server struct {
+        calcOptions calc.Options
+        maxBatch    int
+        issuer      TokenIssuer
+        clients     ClientAuthenticator
+        logger      *slog.Logger
+        version     string
+        startedAt   time.Time
+        now         func() time.Time
+}
+
+// ServerConfig configures the handlers.
+type ServerConfig struct {
+        CalcOptions calc.Options
+        MaxBatch    int
+        Issuer      TokenIssuer
+        Clients     ClientAuthenticator
+        Logger      *slog.Logger
+        Version     string
+}
+
+// NewServer builds the handler set.
+func NewServer(cfg ServerConfig) *Server <span class="cov10" title="18">{
+        if cfg.Logger == nil </span><span class="cov0" title="0">{
+                cfg.Logger = slog.Default()
+        }</span>
+        <span class="cov10" title="18">if cfg.MaxBatch &lt;= 0 </span><span class="cov0" title="0">{
+                cfg.MaxBatch = 50
+        }</span>
+        <span class="cov10" title="18">if cfg.Version == "" </span><span class="cov0" title="0">{
+                cfg.Version = "dev"
+        }</span>
+
+        <span class="cov10" title="18">return &amp;Server{
+                calcOptions: cfg.CalcOptions,
+                maxBatch:    cfg.MaxBatch,
+                issuer:      cfg.Issuer,
+                clients:     cfg.Clients,
+                logger:      cfg.Logger,
+                version:     cfg.Version,
+                startedAt:   time.Now(),
+                now:         time.Now,
+        }</span>
+}
+
+// engineStatus maps an engine error to a status code. Every engine failure is a
+// well-formed request the server understood but cannot compute, which is
+// exactly what 422 means; malformed JSON never reaches the engine and is a 400.
+func engineStatus(*calc.Error) int <span class="cov9" title="14">{
+        return http.StatusUnprocessableEntity
+}</span>
+
+// writeEngineError renders an engine failure, carrying the offset so a client
+// can underline the offending part of the expression.
+func writeEngineError(w http.ResponseWriter, r *http.Request, err *calc.Error) <span class="cov9" title="14">{
+        if err.Position == calc.NoPosition </span><span class="cov5" title="4">{
+                httpx.WriteError(w, r, engineStatus(err), err.Code, err.Message)
+                return
+        }</span>
+        <span class="cov8" title="10">httpx.WriteErrorAt(w, r, engineStatus(err), err.Code, err.Message, err.Position)</span>
+}
+
+// errorBody converts an engine error into the envelope's error object, for
+// endpoints that report failures per item rather than per request.
+func errorBody(err *calc.Error) *httpx.ErrorBody <span class="cov6" title="5">{
+        body := &amp;httpx.ErrorBody{Code: err.Code, Message: err.Message}
+        if err.Position != calc.NoPosition </span><span class="cov5" title="4">{
+                position := err.Position
+                body.Position = &amp;position
+        }</span>
+        <span class="cov6" title="5">return body</span>
+}
+</pre>
+		
+		<pre class="file" id="file20" style="display: none">package httpx
+
+import "context"
+
+type contextKey int
+
+const (
+        requestIDKey contextKey = iota
+        subjectKey
+)
+
+// WithRequestID returns a context carrying the id assigned to this request.
+func WithRequestID(ctx context.Context, id string) context.Context <span class="cov5" title="2">{
+        return context.WithValue(ctx, requestIDKey, id)
+}</span>
+
+// RequestID returns the request id, or "" outside a request.
+func RequestID(ctx context.Context) string <span class="cov10" title="4">{
+        id, _ := ctx.Value(requestIDKey).(string)
+        return id
+}</span>
+
+// WithSubject returns a context carrying the authenticated client id.
+func WithSubject(ctx context.Context, subject string) context.Context <span class="cov1" title="1">{
+        return context.WithValue(ctx, subjectKey, subject)
+}</span>
+
+// Subject returns the authenticated client id, or "" when unauthenticated.
+func Subject(ctx context.Context) string <span class="cov5" title="2">{
+        subject, _ := ctx.Value(subjectKey).(string)
+        return subject
+}</span>
+</pre>
+		
+		<pre class="file" id="file21" style="display: none">// Package httpx holds the pieces shared by the handler and middleware layers:
+// the JSON response envelope, transport-level error codes and the request-id
+// context. Keeping them here lets middleware emit the same envelope as handlers
+// without an import cycle.
+package httpx
+
+import (
+        "bytes"
+        "encoding/json"
+        "log/slog"
+        "net/http"
+)
+
+// Transport-level error codes. Codes raised by the calculation engine itself
+// live in internal/calc.
+const (
+        CodeInvalidRequest   = "INVALID_REQUEST"
+        CodeUnauthorized     = "UNAUTHORIZED"
+        CodeForbidden        = "FORBIDDEN"
+        CodeNotFound         = "NOT_FOUND"
+        CodeMethodNotAllowed = "METHOD_NOT_ALLOWED"
+        CodePayloadTooLarge  = "PAYLOAD_TOO_LARGE"
+        CodeRateLimited      = "RATE_LIMITED"
+        CodeTimeout          = "TIMEOUT"
+        CodeInternal         = "INTERNAL_ERROR"
+)
+
+// ErrorBody describes one failure. Position, when present, is the 0-based rune
+// offset in the submitted expression, so a client can underline the problem.
+type ErrorBody struct {
+        Code     string `json:"code"`
+        Message  string `json:"message"`
+        Position *int   `json:"position,omitempty"`
+}
+
+// ErrorResponse is the envelope every failure uses, whatever the status.
+type ErrorResponse struct {
+        Error     ErrorBody `json:"error"`
+        RequestID string    `json:"requestId,omitempty"`
+}
+
+// WriteJSON serialises payload before touching the ResponseWriter, so an
+// encoding failure produces a clean 500 instead of a truncated body behind an
+// already-sent 200.
+func WriteJSON(w http.ResponseWriter, status int, payload any) <span class="cov10" title="4">{
+        var buf bytes.Buffer
+        if err := json.NewEncoder(&amp;buf).Encode(payload); err != nil </span><span class="cov1" title="1">{
+                slog.Error("encoding response failed", "error", err)
+                http.Error(w, `{"error":{"code":"INTERNAL_ERROR","message":"Response could not be encoded"}}`,
+                        http.StatusInternalServerError)
+                return
+        }</span>
+
+        <span class="cov8" title="3">w.Header().Set("Content-Type", "application/json; charset=utf-8")
+        w.Header().Set("X-Content-Type-Options", "nosniff")
+        w.WriteHeader(status)
+        if _, err := w.Write(buf.Bytes()); err != nil </span><span class="cov0" title="0">{
+                slog.Debug("writing response failed", "error", err)
+        }</span>
+}
+
+// WriteError emits the standard envelope, tagged with the request id so a user
+// report can be traced straight to a log line.
+func WriteError(w http.ResponseWriter, r *http.Request, status int, code, message string) <span class="cov1" title="1">{
+        writeError(w, r, status, ErrorBody{Code: code, Message: message})
+}</span>
+
+// WriteErrorAt is WriteError with the offending offset in the expression.
+func WriteErrorAt(w http.ResponseWriter, r *http.Request, status int, code, message string, position int) <span class="cov1" title="1">{
+        writeError(w, r, status, ErrorBody{Code: code, Message: message, Position: &amp;position})
+}</span>
+
+func writeError(w http.ResponseWriter, r *http.Request, status int, body ErrorBody) <span class="cov5" title="2">{
+        WriteJSON(w, status, ErrorResponse{Error: body, RequestID: RequestID(r.Context())})
+}</span>
+</pre>
+		
+		<pre class="file" id="file22" style="display: none">package middleware
+
+import (
+        "net/http"
+        "strings"
+
+        "github.com/diegoochoa/calculator-sezzle-api/internal/httpx"
+)
+
+// Verifier validates a bearer token and returns the client it identifies.
+type Verifier interface {
+        Verify(token string) (string, error)
+}
+
+// Authenticate rejects any request without a valid bearer token and puts the
+// client id in the context for logging and rate limiting.
+//
+// Every failure returns the same body. Distinguishing "expired" from "bad
+// signature" from "wrong issuer" tells an attacker which half of their guess
+// was right.
+func Authenticate(verifier Verifier) Middleware <span class="cov10" title="8">{
+        return func(next http.Handler) http.Handler </span><span class="cov10" title="8">{
+                return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) </span><span class="cov10" title="8">{
+                        token, ok := bearerToken(r.Header.Get("Authorization"))
+                        if !ok </span><span class="cov5" title="3">{
+                                unauthorized(w, r, "Bearer token required")
+                                return
+                        }</span>
+
+                        <span class="cov7" title="5">subject, err := verifier.Verify(token)
+                        if err != nil </span><span class="cov1" title="1">{
+                                unauthorized(w, r, "The token is not valid")
+                                return
+                        }</span>
+
+                        <span class="cov7" title="4">next.ServeHTTP(w, r.WithContext(httpx.WithSubject(r.Context(), subject)))</span>
+                })
+        }
+}
+
+// bearerToken extracts the credential from an Authorization header. The scheme
+// is matched case-insensitively, as RFC 7235 requires.
+func bearerToken(header string) (string, bool) <span class="cov10" title="8">{
+        scheme, credential, found := strings.Cut(header, " ")
+        if !found || !strings.EqualFold(scheme, "Bearer") </span><span class="cov4" title="2">{
+                return "", false
+        }</span>
+        <span class="cov8" title="6">credential = strings.TrimSpace(credential)
+        if credential == "" </span><span class="cov1" title="1">{
+                return "", false
+        }</span>
+        <span class="cov7" title="5">return credential, true</span>
+}
+
+func unauthorized(w http.ResponseWriter, r *http.Request, message string) <span class="cov7" title="4">{
+        w.Header().Set("WWW-Authenticate", `Bearer error="invalid_token"`)
+        httpx.WriteError(w, r, http.StatusUnauthorized, httpx.CodeUnauthorized, message)
+}</span>
+</pre>
+		
+		<pre class="file" id="file23" style="display: none">package middleware
+
+import "net/http"
+
+// BodyLimit caps how much of a request body a handler can read. Without it a
+// single client can stream an unbounded body into memory before any validation
+// runs. Handlers turn the resulting *http.MaxBytesError into a 413.
+func BodyLimit(maxBytes int64) Middleware <span class="cov8" title="1">{
+        return func(next http.Handler) http.Handler </span><span class="cov8" title="1">{
+                return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) </span><span class="cov8" title="1">{
+                        if r.Body != nil </span><span class="cov8" title="1">{
+                                r.Body = http.MaxBytesReader(w, r.Body, maxBytes)
+                        }</span>
+                        <span class="cov8" title="1">next.ServeHTTP(w, r)</span>
+                })
+        }
+}
+</pre>
+		
+		<pre class="file" id="file24" style="display: none">package middleware
+
+import (
+        "fmt"
+        "net"
+        "net/http"
+        "net/netip"
+        "strings"
+)
+
+// IPResolver derives the client address from a request.
+type IPResolver struct {
+        trusted []netip.Prefix
+}
+
+// NewIPResolver parses the trusted proxy list. Entries may be CIDR blocks
+// (10.0.0.0/8) or single addresses.
+func NewIPResolver(trustedProxies []string) (*IPResolver, error) <span class="cov10" title="10">{
+        resolver := &amp;IPResolver{}
+
+        for _, entry := range trustedProxies </span><span class="cov9" title="8">{
+                entry = strings.TrimSpace(entry)
+                if entry == "" </span><span class="cov3" title="2">{
+                        continue</span>
+                }
+
+                <span class="cov8" title="6">if prefix, err := netip.ParsePrefix(entry); err == nil </span><span class="cov5" title="3">{
+                        resolver.trusted = append(resolver.trusted, prefix)
+                        continue</span>
+                }
+                <span class="cov5" title="3">address, err := netip.ParseAddr(entry)
+                if err != nil </span><span class="cov1" title="1">{
+                        return nil, fmt.Errorf("trusted proxy %q is not an IP address or CIDR block", entry)
+                }</span>
+                <span class="cov3" title="2">resolver.trusted = append(resolver.trusted, netip.PrefixFrom(address, address.BitLen()))</span>
+        }
+
+        <span class="cov9" title="9">return resolver, nil</span>
+}
+
+// ClientIP returns the address to attribute a request to.
+//
+// X-Forwarded-For is honoured only when the immediate peer is a configured
+// proxy. Trusting it unconditionally would let any client forge the header and
+// walk straight through a per-IP rate limit.
+func (r *IPResolver) ClientIP(req *http.Request) string <span class="cov10" title="10">{
+        peer := peerAddress(req.RemoteAddr)
+
+        if len(r.trusted) == 0 || !r.isTrusted(peer) </span><span class="cov8" title="7">{
+                return peer.String()
+        }</span>
+
+        <span class="cov5" title="3">forwarded := req.Header.Get("X-Forwarded-For")
+        if forwarded == "" </span><span class="cov0" title="0">{
+                return peer.String()
+        }</span>
+
+        // The left-most entry is the original client, as appended by the first proxy.
+        <span class="cov5" title="3">first, _, _ := strings.Cut(forwarded, ",")
+        address, err := netip.ParseAddr(strings.TrimSpace(first))
+        if err != nil </span><span class="cov1" title="1">{
+                return peer.String()
+        }</span>
+        <span class="cov3" title="2">return address.String()</span>
+}
+
+func (r *IPResolver) isTrusted(address netip.Addr) bool <span class="cov5" title="3">{
+        if !address.IsValid() </span><span class="cov0" title="0">{
+                return false
+        }</span>
+        <span class="cov5" title="3">for _, prefix := range r.trusted </span><span class="cov5" title="3">{
+                if prefix.Contains(address) </span><span class="cov5" title="3">{
+                        return true
+                }</span>
+        }
+        <span class="cov0" title="0">return false</span>
+}
+
+func peerAddress(remoteAddr string) netip.Addr <span class="cov10" title="10">{
+        host, _, err := net.SplitHostPort(remoteAddr)
+        if err != nil </span><span class="cov0" title="0">{
+                host = remoteAddr
+        }</span>
+        <span class="cov10" title="10">address, err := netip.ParseAddr(strings.Trim(host, "[]"))
+        if err != nil </span><span class="cov0" title="0">{
+                return netip.Addr{}
+        }</span>
+        <span class="cov10" title="10">return address.Unmap()</span>
+}
+</pre>
+		
+		<pre class="file" id="file25" style="display: none">package middleware
+
+import (
+        "net/http"
+        "strings"
+)
+
+const corsMaxAge = "600"
+
+// CORS answers preflights and tags responses for the configured origins.
+//
+// Credentials are deliberately not allowed: the API authenticates with a bearer
+// header rather than a cookie, so there is no reason to widen the browser's
+// trust model. The allowlist is echoed rather than reflected blindly, and Vary
+// is always set so a cache never serves one origin's response to another.
+func CORS(allowedOrigins []string) Middleware <span class="cov4" title="2">{
+        allowAny := false
+        allowed := make(map[string]bool, len(allowedOrigins))
+        for _, origin := range allowedOrigins </span><span class="cov4" title="2">{
+                if origin == "*" </span><span class="cov1" title="1">{
+                        allowAny = true
+                        continue</span>
+                }
+                <span class="cov1" title="1">allowed[strings.ToLower(origin)] = true</span>
+        }
+
+        <span class="cov4" title="2">return func(next http.Handler) http.Handler </span><span class="cov4" title="2">{
+                return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) </span><span class="cov10" title="5">{
+                        origin := r.Header.Get("Origin")
+                        w.Header().Add("Vary", "Origin")
+
+                        if origin != "" &amp;&amp; (allowAny || allowed[strings.ToLower(origin)]) </span><span class="cov8" title="4">{
+                                if allowAny </span><span class="cov1" title="1">{
+                                        w.Header().Set("Access-Control-Allow-Origin", "*")
+                                }</span> else<span class="cov7" title="3"> {
+                                        w.Header().Set("Access-Control-Allow-Origin", origin)
+                                }</span>
+                        }
+
+                        <span class="cov10" title="5">if r.Method == http.MethodOptions &amp;&amp; r.Header.Get("Access-Control-Request-Method") != "" </span><span class="cov1" title="1">{
+                                w.Header().Add("Vary", "Access-Control-Request-Method")
+                                w.Header().Add("Vary", "Access-Control-Request-Headers")
+                                w.Header().Set("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+                                w.Header().Set("Access-Control-Allow-Headers", "Authorization, Content-Type, "+HeaderRequestID)
+                                w.Header().Set("Access-Control-Max-Age", corsMaxAge)
+                                w.WriteHeader(http.StatusNoContent)
+                                return
+                        }</span>
+
+                        <span class="cov8" title="4">next.ServeHTTP(w, r)</span>
+                })
+        }
+}
+</pre>
+		
+		<pre class="file" id="file26" style="display: none">package middleware
+
+import (
+        "log/slog"
+        "net/http"
+        "time"
+
+        "github.com/diegoochoa/calculator-sezzle-api/internal/httpx"
+)
+
+// Logging emits one structured line per request. Server errors are logged at
+// error level so they surface in alerting without parsing status codes out of
+// info lines.
+func Logging(logger *slog.Logger) Middleware <span class="cov8" title="1">{
+        return func(next http.Handler) http.Handler </span><span class="cov8" title="1">{
+                return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) </span><span class="cov8" title="1">{
+                        started := time.Now()
+                        rec := newRecorder(w)
+
+                        next.ServeHTTP(rec, r)
+
+                        attrs := []any{
+                                "method", r.Method,
+                                "path", r.URL.Path,
+                                "status", rec.status,
+                                "bytes", rec.bytes,
+                                "duration", time.Since(started).String(),
+                                "requestId", httpx.RequestID(r.Context()),
+                        }
+                        // Only present once authentication has run.
+                        if subject := httpx.Subject(r.Context()); subject != "" </span><span class="cov0" title="0">{
+                                attrs = append(attrs, "client", subject)
+                        }</span>
+
+                        <span class="cov8" title="1">switch </span>{
+                        case rec.status &gt;= http.StatusInternalServerError:<span class="cov0" title="0">
+                                logger.Error("request failed", attrs...)</span>
+                        case rec.status &gt;= http.StatusBadRequest:<span class="cov8" title="1">
+                                logger.Warn("request rejected", attrs...)</span>
+                        default:<span class="cov0" title="0">
+                                logger.Info("request served", attrs...)</span>
+                        }
+                })
+        }
+}
+</pre>
+		
+		<pre class="file" id="file27" style="display: none">// Package middleware holds the cross-cutting HTTP layers: request identity,
+// panic recovery, logging, CORS, body limits, authentication and rate limiting.
+package middleware
+
+import "net/http"
+
+// Middleware wraps a handler.
+type Middleware func(http.Handler) http.Handler
+
+// Chain applies middleware so that the first argument is the outermost layer.
+// Order matters: recovery must be outermost to catch panics raised by any layer
+// below it, and authentication must precede rate limiting so the limiter can
+// key on the authenticated client.
+func Chain(handler http.Handler, layers ...Middleware) http.Handler <span class="cov9" title="16">{
+        for i := len(layers) - 1; i &gt;= 0; i-- </span><span class="cov10" title="18">{
+                handler = layers[i](handler)
+        }</span>
+        <span class="cov9" title="16">return handler</span>
+}
+
+// recorder tracks what was actually sent, so logging can report the status and
+// recovery can tell whether it is still safe to write an error body.
+type recorder struct {
+        http.ResponseWriter
+        status      int
+        bytes       int
+        wroteHeader bool
+}
+
+func newRecorder(w http.ResponseWriter) *recorder <span class="cov4" title="3">{
+        return &amp;recorder{ResponseWriter: w, status: http.StatusOK}
+}</span>
+
+func (r *recorder) WriteHeader(status int) <span class="cov4" title="3">{
+        if r.wroteHeader </span><span class="cov0" title="0">{
+                return
+        }</span>
+        <span class="cov4" title="3">r.status = status
+        r.wroteHeader = true
+        r.ResponseWriter.WriteHeader(status)</span>
+}
+
+func (r *recorder) Write(b []byte) (int, error) <span class="cov3" title="2">{
+        if !r.wroteHeader </span><span class="cov0" title="0">{
+                r.WriteHeader(http.StatusOK)
+        }</span>
+        <span class="cov3" title="2">n, err := r.ResponseWriter.Write(b)
+        r.bytes += n
+        return n, err</span>
+}
+</pre>
+		
+		<pre class="file" id="file28" style="display: none">package middleware
+
+import (
+        "net/http"
+        "strconv"
+        "sync"
+        "time"
+
+        "github.com/diegoochoa/calculator-sezzle-api/internal/httpx"
+        "golang.org/x/time/rate"
+)
+
+// Rate limit headers, following the widely implemented draft conventions.
+const (
+        HeaderRateLimitLimit     = "X-RateLimit-Limit"
+        HeaderRateLimitRemaining = "X-RateLimit-Remaining"
+        HeaderRetryAfter         = "Retry-After"
+)
+
+// idleTTL is how long an unused bucket is kept before eviction.
+const idleTTL = 10 * time.Minute
+
+type bucket struct {
+        limiter  *rate.Limiter
+        lastSeen time.Time
+}
+
+// Limiter is a per-key token bucket.
+//
+// The bucket map is swept on a TTL. A map that only ever grows is the standard
+// bug in this pattern: with per-IP keys it is an unbounded memory leak that any
+// client can drive by rotating source addresses.
+type Limiter struct {
+        mu        sync.Mutex
+        buckets   map[string]*bucket
+        lastSweep time.Time
+
+        rps   rate.Limit
+        burst int
+        ttl   time.Duration
+
+        // now is injectable so eviction is testable without sleeping.
+        now func() time.Time
+}
+
+// NewLimiter builds a limiter allowing rps sustained requests with the given
+// burst.
+func NewLimiter(rps float64, burst int) *Limiter <span class="cov6" title="5">{
+        return &amp;Limiter{
+                buckets: make(map[string]*bucket),
+                rps:     rate.Limit(rps),
+                burst:   burst,
+                ttl:     idleTTL,
+                now:     time.Now,
+        }
+}</span>
+
+// Burst reports the configured burst, reported as the limit header.
+func (l *Limiter) Burst() int <span class="cov1" title="1">{ return l.burst }</span>
+
+// Allow consumes a token for key. When refused it reports how long the caller
+// should wait.
+func (l *Limiter) Allow(key string) (allowed bool, remaining int, retryAfter time.Duration) <span class="cov10" title="17">{
+        l.mu.Lock()
+        defer l.mu.Unlock()
+
+        now := l.now()
+        l.sweepLocked(now)
+
+        entry, ok := l.buckets[key]
+        if !ok </span><span class="cov7" title="9">{
+                entry = &amp;bucket{limiter: rate.NewLimiter(l.rps, l.burst)}
+                l.buckets[key] = entry
+        }</span>
+        <span class="cov10" title="17">entry.lastSeen = now
+
+        // Reserve rather than Allow, so a refusal can report a real delay. The
+        // reservation is cancelled when it cannot be honoured immediately.
+        reservation := entry.limiter.ReserveN(now, 1)
+        if !reservation.OK() </span><span class="cov0" title="0">{
+                return false, 0, time.Second
+        }</span>
+        <span class="cov10" title="17">if delay := reservation.DelayFrom(now); delay &gt; 0 </span><span class="cov5" title="4">{
+                reservation.CancelAt(now)
+                return false, 0, delay
+        }</span>
+
+        <span class="cov9" title="13">return true, int(entry.limiter.TokensAt(now)), 0</span>
+}
+
+// sweepLocked drops buckets nobody has touched for a TTL. Called under the
+// mutex, at most once per TTL, so the cost is amortised to nothing.
+func (l *Limiter) sweepLocked(now time.Time) <span class="cov10" title="17">{
+        if now.Sub(l.lastSweep) &lt; l.ttl </span><span class="cov8" title="11">{
+                return
+        }</span>
+        <span class="cov6" title="6">l.lastSweep = now
+
+        for key, entry := range l.buckets </span><span class="cov4" title="3">{
+                if now.Sub(entry.lastSeen) &gt; l.ttl </span><span class="cov4" title="3">{
+                        delete(l.buckets, key)
+                }</span>
+        }
+}
+
+// Size reports how many buckets are held, for tests and diagnostics.
+func (l *Limiter) Size() int <span class="cov3" title="2">{
+        l.mu.Lock()
+        defer l.mu.Unlock()
+        return len(l.buckets)
+}</span>
+
+// KeyFunc derives the rate limit key from a request.
+type KeyFunc func(*http.Request) string
+
+// SubjectKey limits per authenticated client. It falls back to the peer address
+// so an unauthenticated route is still bounded.
+func SubjectKey(resolver *IPResolver) KeyFunc <span class="cov1" title="1">{
+        return func(r *http.Request) string </span><span class="cov3" title="2">{
+                if subject := httpx.Subject(r.Context()); subject != "" </span><span class="cov1" title="1">{
+                        return "client:" + subject
+                }</span>
+                <span class="cov1" title="1">return "ip:" + resolver.ClientIP(r)</span>
+        }
+}
+
+// IPKey limits per source address, for routes that run before authentication.
+func IPKey(resolver *IPResolver) KeyFunc <span class="cov1" title="1">{
+        return func(r *http.Request) string </span><span class="cov4" title="3">{ return "ip:" + resolver.ClientIP(r) }</span>
+}
+
+// RateLimit refuses traffic above the configured rate with a 429 in the standard
+// envelope.
+func RateLimit(limiter *Limiter, key KeyFunc) Middleware <span class="cov1" title="1">{
+        limit := strconv.Itoa(limiter.Burst())
+
+        return func(next http.Handler) http.Handler </span><span class="cov1" title="1">{
+                return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) </span><span class="cov4" title="3">{
+                        allowed, remaining, retryAfter := limiter.Allow(key(r))
+
+                        w.Header().Set(HeaderRateLimitLimit, limit)
+                        w.Header().Set(HeaderRateLimitRemaining, strconv.Itoa(remaining))
+
+                        if !allowed </span><span class="cov1" title="1">{
+                                seconds := int(retryAfter.Seconds())
+                                if seconds &lt; 1 </span><span class="cov1" title="1">{
+                                        seconds = 1
+                                }</span>
+                                <span class="cov1" title="1">w.Header().Set(HeaderRetryAfter, strconv.Itoa(seconds))
+                                httpx.WriteError(w, r, http.StatusTooManyRequests, httpx.CodeRateLimited,
+                                        "Too many requests, please slow down")
+                                return</span>
+                        }
+
+                        <span class="cov3" title="2">next.ServeHTTP(w, r)</span>
+                })
+        }
+}
+</pre>
+		
+		<pre class="file" id="file29" style="display: none">package middleware
+
+import (
+        "log/slog"
+        "net/http"
+        "runtime/debug"
+
+        "github.com/diegoochoa/calculator-sezzle-api/internal/httpx"
+)
+
+// Recover turns a panic into a 500 in the standard envelope. It belongs
+// outermost so a panic raised in any layer below is still answered rather than
+// killing the connection, and the stack reaches the logs instead of the client.
+func Recover(logger *slog.Logger) Middleware <span class="cov10" title="2">{
+        return func(next http.Handler) http.Handler </span><span class="cov10" title="2">{
+                return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) </span><span class="cov10" title="2">{
+                        rec := newRecorder(w)
+
+                        defer func() </span><span class="cov10" title="2">{
+                                recovered := recover()
+                                if recovered == nil </span><span class="cov0" title="0">{
+                                        return
+                                }</span>
+
+                                <span class="cov10" title="2">logger.Error("panic recovered",
+                                        "error", recovered,
+                                        "method", r.Method,
+                                        "path", r.URL.Path,
+                                        "requestId", httpx.RequestID(r.Context()),
+                                        "stack", string(debug.Stack()),
+                                )
+
+                                // Once bytes are on the wire the status is fixed; all we can do
+                                // is stop writing and let the client see a truncated body.
+                                if rec.wroteHeader </span><span class="cov1" title="1">{
+                                        return
+                                }</span>
+                                <span class="cov1" title="1">httpx.WriteError(rec, r, http.StatusInternalServerError,
+                                        httpx.CodeInternal, "Something went wrong")</span>
+                        }()
+
+                        <span class="cov10" title="2">next.ServeHTTP(rec, r)</span>
+                })
+        }
+}
+</pre>
+		
+		<pre class="file" id="file30" style="display: none">package middleware
+
+import (
+        "crypto/rand"
+        "encoding/hex"
+        "net/http"
+
+        "github.com/diegoochoa/calculator-sezzle-api/internal/httpx"
+)
+
+// HeaderRequestID is the header read and echoed for request correlation.
+const HeaderRequestID = "X-Request-Id"
+
+const maxInboundRequestIDLength = 64
+
+// RequestID attaches an id to every request and echoes it back, so a user's bug
+// report ties directly to a log line.
+//
+// An inbound id is honoured only when it is short and alphanumeric: the value
+// lands in logs and in a response header, and neither should carry attacker
+// controlled newlines or unbounded length.
+func RequestID(next http.Handler) http.Handler <span class="cov5" title="5">{
+        return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) </span><span class="cov5" title="5">{
+                id := sanitiseRequestID(r.Header.Get(HeaderRequestID))
+                if id == "" </span><span class="cov5" title="4">{
+                        id = newRequestID()
+                }</span>
+
+                <span class="cov5" title="5">w.Header().Set(HeaderRequestID, id)
+                next.ServeHTTP(w, r.WithContext(httpx.WithRequestID(r.Context(), id)))</span>
+        })
+}
+
+func sanitiseRequestID(raw string) string <span class="cov5" title="5">{
+        if raw == "" || len(raw) &gt; maxInboundRequestIDLength </span><span class="cov3" title="2">{
+                return ""
+        }</span>
+        <span class="cov4" title="3">for _, r := range raw </span><span class="cov10" title="21">{
+                isSafe := (r &gt;= 'a' &amp;&amp; r &lt;= 'z') || (r &gt;= 'A' &amp;&amp; r &lt;= 'Z') ||
+                        (r &gt;= '0' &amp;&amp; r &lt;= '9') || r == '-' || r == '_'
+                if !isSafe </span><span class="cov3" title="2">{
+                        return ""
+                }</span>
+        }
+        <span class="cov1" title="1">return raw</span>
+}
+
+func newRequestID() string <span class="cov5" title="4">{
+        buf := make([]byte, 12)
+        if _, err := rand.Read(buf); err != nil </span><span class="cov0" title="0">{
+                return "unidentified"
+        }</span>
+        <span class="cov5" title="4">return hex.EncodeToString(buf)</span>
+}
+</pre>
+		
+		</div>
+	</body>
+	<script>
+	(function() {
+		var files = document.getElementById('files');
+		var visible;
+		files.addEventListener('change', onChange, false);
+		function select(part) {
+			if (visible)
+				visible.style.display = 'none';
+			visible = document.getElementById(part);
+			if (!visible)
+				return;
+			files.value = part;
+			visible.style.display = 'block';
+			location.hash = part;
+		}
+		function onChange() {
+			select(files.value);
+			window.scrollTo(0, 0);
+		}
+		if (location.hash != "") {
+			select(location.hash.substr(1));
+		}
+		if (!visible) {
+			select("file0");
+		}
+	})();
+	</script>
+</html>

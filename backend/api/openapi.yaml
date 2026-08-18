@@ -1,0 +1,493 @@
+openapi: 3.0.3
+
+info:
+  title: Calculator API
+  version: "1.0.0"
+  description: |
+    Evaluates mathematical expressions with full operator precedence.
+
+    **Authentication.** Every `/v1` route except the token endpoint needs a
+    bearer JWT. Exchange client credentials at `POST /v1/auth/token`, then send
+    `Authorization: Bearer <token>`. Tokens are short-lived; mint a new one
+    rather than trying to refresh.
+
+    **Errors.** Every failure — 400, 401, 404, 405, 413, 422, 429, 500 — uses the
+    same envelope. `error.position` is a 0-based rune offset into the submitted
+    expression, so a client can underline exactly what broke. `requestId` is
+    echoed in the `X-Request-Id` header and stamped on the server's log line for
+    that request.
+
+    **400 versus 422** is the line between "the request was malformed" and "the
+    request was understood but cannot be computed".
+
+    **Rate limiting.** `X-RateLimit-Limit` and `X-RateLimit-Remaining` are on
+    every response; a 429 adds `Retry-After`. The token endpoint has its own,
+    tighter limit keyed by source address.
+
+    **Grammar.** The four operations, `^` (right associative), postfix `%`
+    (divide by one hundred), prefix `√`, parentheses, and the functions
+    `sqrt` and `abs`. Precedence applies: `2 + 3 * 4` is 14. There is no
+    implicit multiplication — write `2 * 3`, not `2 3`.
+  license:
+    name: Unlicensed
+
+servers:
+  - url: http://localhost:8081
+    description: The API directly, as Docker Compose exposes it
+  - url: http://localhost:8080
+    description: Through the frontend's nginx, which proxies /v1
+  - url: http://localhost:8080
+    description: Running the binary alone with `make run`
+
+tags:
+  - name: Calculation
+    description: Evaluating and validating expressions
+  - name: Authentication
+    description: Obtaining a bearer token
+  - name: Introspection
+    description: What the engine understands
+  - name: Operations
+    description: Liveness and readiness
+
+paths:
+  /v1/auth/token:
+    post:
+      tags: [Authentication]
+      summary: Exchange client credentials for a bearer token
+      description: |
+        Rate limited per source address, harder than the calculation routes:
+        bcrypt makes this the expensive path and the obvious brute-force target.
+
+        Every rejection returns the same body. Distinguishing "no such client"
+        from "wrong secret" would turn the message into an oracle.
+      operationId: createToken
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/TokenRequest' }
+      responses:
+        '200':
+          description: A freshly minted token
+          headers:
+            Cache-Control:
+              description: Always `no-store`; credentials must not be cached
+              schema: { type: string }
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TokenResponse' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '401':
+          description: The credentials are not valid
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorResponse' }
+        '429': { $ref: '#/components/responses/RateLimited' }
+
+  /v1/calculate:
+    post:
+      tags: [Calculation]
+      summary: Evaluate one expression
+      operationId: calculate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/CalculateRequest' }
+            examples:
+              precedence:
+                summary: Operator precedence
+                value: { expression: "2 + 3 * 4" }
+              roots:
+                summary: Square root and exponentiation
+                value: { expression: "\u221a9 ^ 2" }
+              unicode:
+                summary: The glyphs the UI renders are accepted
+                value: { expression: "6 ÷ 2 × 3" }
+      responses:
+        '200':
+          description: The evaluated result
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/CalculateResponse' }
+              example:
+                result: 14
+                formatted: "14"
+                expression: "2 + 3 * 4"
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '413': { $ref: '#/components/responses/PayloadTooLarge' }
+        '422': { $ref: '#/components/responses/Unprocessable' }
+        '429': { $ref: '#/components/responses/RateLimited' }
+
+  /v1/calculate/batch:
+    post:
+      tags: [Calculation]
+      summary: Evaluate many expressions in one round trip
+      description: |
+        Returns **200 even when individual expressions fail**. A partial failure
+        is the expected outcome, and collapsing it into a single status would
+        throw away the results that did succeed. Inspect each item's `result` or
+        `error`.
+      operationId: calculateBatch
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/BatchRequest' }
+            example:
+              expressions: ["1+1", "1/0", "2 * 3"]
+      responses:
+        '200':
+          description: One entry per submitted expression, in order
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/BatchResponse' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '413': { $ref: '#/components/responses/PayloadTooLarge' }
+        '429': { $ref: '#/components/responses/RateLimited' }
+
+  /v1/validate:
+    post:
+      tags: [Calculation]
+      summary: Check syntax without evaluating
+      description: |
+        Parse-only, so a client can check syntax on every keystroke without
+        triggering a division by zero or a slow evaluation.
+
+        An invalid expression is a **200 with `valid: false`**, not a 422: the
+        client asked whether the text parses, and "no" is a successful answer to
+        that question.
+      operationId: validate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ValidateRequest' }
+            example: { expression: "2 + 3 * 4" }
+      responses:
+        '200':
+          description: Whether the expression parses
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ValidateResponse' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '413': { $ref: '#/components/responses/PayloadTooLarge' }
+        '429': { $ref: '#/components/responses/RateLimited' }
+
+  /v1/functions:
+    get:
+      tags: [Introspection]
+      summary: Every function, constant and operator the engine understands
+      description: |
+        Served so a client can build its keypad and syntax hints from the
+        server's real capability rather than a hand-maintained duplicate. The
+        payload is stable between calls, so it is safe to cache.
+      operationId: getCatalog
+      responses:
+        '200':
+          description: The grammar, as data
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Catalog' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '429': { $ref: '#/components/responses/RateLimited' }
+
+  /healthz:
+    get:
+      tags: [Operations]
+      summary: Liveness probe
+      description: Unauthenticated, so an orchestrator needs no credentials.
+      operationId: getHealth
+      security: []
+      responses:
+        '200':
+          description: The process is up and serving
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/HealthResponse' }
+
+  /readyz:
+    get:
+      tags: [Operations]
+      summary: Readiness probe
+      description: |
+        The engine has no external dependencies, so readiness is liveness plus
+        uptime. When a datastore appears, its check belongs here rather than in
+        `/healthz`, so a failing dependency stops traffic without restarting the
+        process.
+      operationId: getReady
+      security: []
+      responses:
+        '200':
+          description: The process is ready for traffic
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/HealthResponse' }
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: |
+        HS256, issued by `POST /v1/auth/token`. The server pins the algorithm and
+        rejects `alg: none` and any asymmetric algorithm.
+
+  schemas:
+    TokenRequest:
+      type: object
+      required: [clientId, clientSecret]
+      properties:
+        clientId: { type: string, example: web }
+        clientSecret: { type: string, format: password, example: dev-secret }
+
+    TokenResponse:
+      type: object
+      required: [token, tokenType, expiresIn, expiresAt]
+      properties:
+        token: { type: string, description: The bearer JWT }
+        tokenType: { type: string, enum: [Bearer] }
+        expiresIn: { type: integer, description: Lifetime in seconds, example: 900 }
+        expiresAt: { type: string, format: date-time }
+
+    Precision:
+      type: integer
+      minimum: 1
+      maximum: 15
+      default: 12
+      description: Significant digits used when formatting the result.
+
+    CalculateRequest:
+      type: object
+      required: [expression]
+      properties:
+        expression:
+          type: string
+          description: |
+            Infix notation. Precedence, right-associative `^`, and parentheses
+            all apply. `%` is postfix divide-by-one-hundred. There is no implicit
+            multiplication: write `2 * 3`, not `2 3`.
+          example: "2 + 3 * 4"
+        precision: { $ref: '#/components/schemas/Precision' }
+
+    CalculateResponse:
+      type: object
+      required: [result, formatted, expression]
+      properties:
+        result:
+          type: number
+          description: Never NaN or infinite; both are reported as errors instead.
+        formatted:
+          type: string
+          description: |
+            The display string. Provided so a client never has to re-derive the
+            engine's rounding rules.
+        expression: { type: string, description: Echoed back as submitted }
+
+    BatchRequest:
+      type: object
+      required: [expressions]
+      properties:
+        expressions:
+          type: array
+          minItems: 1
+          maxItems: 50
+          items: { type: string }
+        precision: { $ref: '#/components/schemas/Precision' }
+
+    BatchItem:
+      type: object
+      required: [expression]
+      description: Exactly one of `result` or `error` is present.
+      properties:
+        expression: { type: string }
+        result: { type: number }
+        formatted: { type: string }
+        error: { $ref: '#/components/schemas/ErrorBody' }
+
+    BatchResponse:
+      type: object
+      required: [results]
+      properties:
+        results:
+          type: array
+          items: { $ref: '#/components/schemas/BatchItem' }
+
+    ValidateRequest:
+      type: object
+      required: [expression]
+      properties:
+        expression: { type: string, example: "2 + 3 * 4" }
+
+    ValidateResponse:
+      type: object
+      required: [valid, expression]
+      properties:
+        valid: { type: boolean }
+        expression: { type: string }
+        error: { $ref: '#/components/schemas/ErrorBody' }
+
+    FunctionInfo:
+      type: object
+      required: [name, minArgs, maxArgs, summary]
+      properties:
+        name: { type: string, example: sqrt }
+        minArgs: { type: integer, example: 1 }
+        maxArgs: { type: integer, example: 1 }
+        summary: { type: string }
+        domain:
+          type: string
+          description: Accepted inputs, when the function is restricted.
+
+    OperatorInfo:
+      type: object
+      required: [symbol, summary, fixity, precedence]
+      properties:
+        symbol: { type: string, example: "^" }
+        summary: { type: string }
+        fixity: { type: string, enum: [prefix, infix, postfix] }
+        precedence: { type: integer, description: Higher binds tighter }
+        associativity: { type: string, enum: [left, right] }
+        aliases:
+          type: array
+          items: { type: string }
+          description: Unicode glyphs accepted for the same operator.
+
+    Catalog:
+      type: object
+      required: [functions, operators, maxExpressionLength, maxDepth]
+      properties:
+        functions:
+          type: array
+          items: { $ref: '#/components/schemas/FunctionInfo' }
+        operators:
+          type: array
+          items: { $ref: '#/components/schemas/OperatorInfo' }
+        maxExpressionLength: { type: integer, example: 256 }
+        maxDepth:
+          type: integer
+          example: 32
+          description: |
+            Bounds parser recursion. Not cosmetic: a recursive-descent parser
+            without one is a stack-overflow denial of service.
+
+    HealthResponse:
+      type: object
+      required: [status, version]
+      properties:
+        status: { type: string, example: ok }
+        version: { type: string, example: compose }
+        uptime: { type: string, example: "1m30s" }
+
+    ErrorBody:
+      type: object
+      required: [code, message]
+      properties:
+        code: { $ref: '#/components/schemas/ErrorCode' }
+        message: { type: string, description: Human readable, safe to display }
+        position:
+          type: integer
+          description: 0-based rune offset into the submitted expression.
+          example: 4
+
+    ErrorResponse:
+      type: object
+      required: [error]
+      properties:
+        error: { $ref: '#/components/schemas/ErrorBody' }
+        requestId:
+          type: string
+          description: Also returned as `X-Request-Id`; quote it in a bug report.
+
+    ErrorCode:
+      type: string
+      description: |
+        Machine-readable failure. Clients switch on this, so the meanings do not
+        change.
+      enum:
+        - INVALID_REQUEST
+        - UNAUTHORIZED
+        - FORBIDDEN
+        - NOT_FOUND
+        - METHOD_NOT_ALLOWED
+        - PAYLOAD_TOO_LARGE
+        - RATE_LIMITED
+        - TIMEOUT
+        - INTERNAL_ERROR
+        - EMPTY_EXPRESSION
+        - EXPRESSION_TOO_LONG
+        - SYNTAX_ERROR
+        - UNBALANCED_PAREN
+        - UNKNOWN_IDENTIFIER
+        - WRONG_ARITY
+        - DEPTH_EXCEEDED
+        - DIVISION_BY_ZERO
+        - DOMAIN_ERROR
+        - UNDEFINED_RESULT
+        - OVERFLOW
+
+  responses:
+    BadRequest:
+      description: |
+        Malformed JSON, a field of the wrong type, an unknown field, or an
+        an out-of-range `precision`.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorResponse' }
+          example:
+            error: { code: INVALID_REQUEST, message: 'Unknown field "expresion"' }
+            requestId: 2c45d0d2d280838ff6f1c9e7
+
+    Unauthorized:
+      description: The bearer token is missing, malformed, expired or forged.
+      headers:
+        WWW-Authenticate:
+          schema: { type: string }
+          example: Bearer error="invalid_token"
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorResponse' }
+
+    PayloadTooLarge:
+      description: The request body exceeded the configured limit.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorResponse' }
+
+    Unprocessable:
+      description: |
+        The request was understood but the expression cannot be computed —
+        a syntax error, an unbalanced bracket, a domain failure such as
+        `sqrt(-1)`, a division by zero, or a result outside the representable
+        range.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorResponse' }
+          example:
+            error:
+              code: DIVISION_BY_ZERO
+              message: "Can't divide by zero"
+              position: 7
+            requestId: 8bdcaaea2543f569c52c9347
+
+    RateLimited:
+      description: Too many requests.
+      headers:
+        Retry-After:
+          description: Seconds to wait before retrying.
+          schema: { type: integer }
+        X-RateLimit-Limit:
+          schema: { type: integer }
+        X-RateLimit-Remaining:
+          schema: { type: integer }
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorResponse' }
+
+security:
+  - bearerAuth: []

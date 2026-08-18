@@ -1,0 +1,40 @@
+.calculator {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: min(400px, 100%);
+  padding: var(--space-4);
+  border: 1px solid var(--shell-border);
+  border-radius: var(--radius-lg);
+  background: var(--shell-bg);
+  box-shadow: var(--shell-shadow);
+  transition: width var(--duration-slow) var(--ease-out);
+}
+
+.toolbar {
+  display: flex;
+  justify-content: center;
+}
+
+.body {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.wide {
+  width: min(768px, 100%);
+}
+
+/* Side by side once there is room; stacked below that. */
+@media (min-width: 820px) {
+  .wide .body {
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .calculator {
+    transition: none;
+  }
+}

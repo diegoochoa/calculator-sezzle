@@ -1,0 +1,12 @@
+.git
+.gitignore
+.env
+bin/
+coverage.out
+coverage.html
+*.test
+testdata/fuzz/
+README.md
+docker-compose.yml
+Dockerfile
+.dockerignore

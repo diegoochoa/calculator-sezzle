@@ -1,0 +1,54 @@
+# Rendered to /etc/nginx/conf.d/default.conf at container start; ${API_UPSTREAM}
+# is the only substitution (NGINX_ENVSUBST_FILTER=^API_).
+
+server {
+    listen 8080;
+    server_name _;
+
+    root /usr/share/nginx/html;
+    index index.html;
+
+    # Proxying the API under the same origin removes CORS from the production
+    # path entirely: the browser never makes a cross-origin request.
+    location /v1/ {
+        proxy_pass ${API_UPSTREAM};
+        proxy_http_version 1.1;
+
+        proxy_set_header Host              $host;
+        proxy_set_header X-Real-IP         $remote_addr;
+        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        # The API's own request timeout is shorter than this, so it answers
+        # first and the client gets the JSON envelope rather than a 504.
+        proxy_connect_timeout 5s;
+        proxy_read_timeout    30s;
+    }
+
+    # Hashed filenames, so they can be cached indefinitely.
+    location /assets/ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+        access_log off;
+    }
+
+    # index.html must never be cached, or a deploy leaves clients pointing at
+    # asset hashes that no longer exist.
+    location = /index.html {
+        add_header Cache-Control "no-cache";
+    }
+
+    # Single-page app: unknown paths fall through to the shell.
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 1024;
+    gzip_types text/css application/javascript application/json image/svg+xml;
+
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-Frame-Options "DENY" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+}

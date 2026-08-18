@@ -1,0 +1,46 @@
+# Runs both halves of the product from the repository root.
+#
+#   docker compose up --build
+#   frontend  http://localhost:8080
+#   api       http://localhost:8081   (also proxied at /v1 through the frontend)
+
+services:
+  api:
+    build:
+      context: ./backend
+      args:
+        VERSION: ${VERSION:-compose}
+    ports:
+      - "8081:8080"
+    environment:
+      CALC_ENV: development
+      CALC_PORT: 8080
+      # Development credentials. In production supply CALC_JWT_SECRET and
+      # CALC_CLIENTS (bcrypt hashes) through your secret store instead; the
+      # server refuses to start with these settings when CALC_ENV=production.
+      CALC_CLIENTS_PLAINTEXT: web:dev-secret
+      # nginx proxies /v1, so the browser never makes a cross-origin request.
+      # This origin is only needed for hitting the API directly on :8081.
+      CALC_CORS_ORIGINS: http://localhost:8080
+      CALC_TRUSTED_PROXIES: 172.16.0.0/12
+    healthcheck:
+      # distroless has no shell and no curl, so the binary checks itself.
+      test: ["CMD", "/server", "-healthcheck"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 2s
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "8080:8080"
+    depends_on:
+      api:
+        condition: service_healthy
+    environment:
+      # Consumed by the nginx template to reach the API service.
+      API_UPSTREAM: http://api:8080
+    restart: unless-stopped

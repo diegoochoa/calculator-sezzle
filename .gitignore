@@ -1,0 +1,23 @@
+# Each service also carries its own .gitignore. These are the repository-wide
+# rules, plus a deliberate safety net: the patterns below are repeated here so
+# that a missing or truncated sub-gitignore cannot let dependencies or build
+# output into a commit again.
+
+.DS_Store
+*.log
+
+# Dependencies and build output, wherever they appear.
+node_modules/
+dist/
+bin/
+
+# Coverage: the raw Go profile is an intermediate and stays out. The rendered
+# reports are committed deliberately so they can be reviewed without cloning
+# and running the suites — see COVERAGE.md.
+coverage.out
+
+# Local environment overrides. The committed .env.example files are the
+# documentation; real values never belong in the repository.
+.env
+.env.local
+.env.*.local
