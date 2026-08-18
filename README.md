@@ -1,6 +1,6 @@
 # Calculator
 
-Design rationale
+## Design rationale
 A calculator built as two services in one repository: a React shell that composes expressions, and a Go API that evaluates them.
 
 The project is intented to be a monorepo with frontend and backend, using security layers such as tokenization and rate limit on the endpoints. Docker compose on place to run the application without any other requirements, possibili
